@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evpoly.polyweb.member.dao.MemberDAO">
+
+    <select id="login" parameterType="String" resultType="MemberVO">
+        SELECT 	mbr_id, mbr_pw
+        FROM 	ev_mbr
+        WHERE 	mbr_id = #{mbrId}
+        AND 	mbr_pw = #{mbrPw}
+    </select>
+
+</mapper>
