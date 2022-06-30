@@ -165,7 +165,7 @@
                                     <h2>전체 글</h2>
                                 </div>
                                 <div class="col-xs-7">
-                                    <a onclick="location.href='/notice_form'" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>	
+                                    <a href="notice-form" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>	
                                 </div>
                             </div>
                         </div>
