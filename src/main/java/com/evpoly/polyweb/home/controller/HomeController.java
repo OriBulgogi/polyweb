@@ -54,4 +54,9 @@ public class HomeController {
     public String staff(){
         return "staff";
     }
+    
+    @RequestMapping(value = "user/notice-form")
+    public String noticeform() {
+    	return "notice-form";
+    }
 }
