@@ -20,42 +20,42 @@ public class HomeController {
 		return "login";
 	}
 
-    @RequestMapping(value = "user/index", method = RequestMethod.GET)
+    @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(){
         return "index";
     }
 
-    @RequestMapping(value = "user/history-carnum", method = RequestMethod.GET)
+    @RequestMapping(value = "history-carnum", method = RequestMethod.GET)
     public String carnum(){
         return "history-carnum";
     }
 
-    @RequestMapping(value = "user/history-date", method = RequestMethod.GET)
+    @RequestMapping(value = "history-date", method = RequestMethod.GET)
     public String date(){
         return "history-date";
     }
 
-    @RequestMapping(value = "user/manage-area", method = RequestMethod.GET)
+    @RequestMapping(value = "manage-area", method = RequestMethod.GET)
     public String area(){
         return "manage-area";
     }
 
-    @RequestMapping(value = "user/notice-form", method = RequestMethod.GET)
+    @RequestMapping(value = "notice-form", method = RequestMethod.GET)
     public String form(){
         return "notice-form";
     }
 
-    @RequestMapping(value = "user/notice", method = RequestMethod.GET)
+    @RequestMapping(value = "notice", method = RequestMethod.GET)
     public String notice(){
         return "notice";
     }
 
-    @RequestMapping(value = "user/staff", method = RequestMethod.GET)
+    @RequestMapping(value = "staff", method = RequestMethod.GET)
     public String staff(){
         return "staff";
     }
     
-    @RequestMapping(value = "user/notice-form")
+    @RequestMapping(value = "notice-form")
     public String noticeform() {
     	return "notice-form";
     }

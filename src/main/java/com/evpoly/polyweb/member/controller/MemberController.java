@@ -17,14 +17,13 @@ import java.util.Map;
 
 @Controller
 @Log4j2
-@RequestMapping("/user")
 public class MemberController {
     @Autowired
     private MemberService memberService;
 
     @GetMapping(value = "/login")
     public  String login() {
-        return "user/login";
+        return "login";
     }
 
     @PostMapping("/login")
@@ -42,7 +41,7 @@ public class MemberController {
 
             if (memberVO != null) {
                 session.setAttribute("user", memberVO);
-                return "index";
+                return "/index";
             } else {
 
                 model.addAttribute("msg", "아이디 또는 비밀번호가 올바르지 않습니다.");
@@ -53,6 +52,6 @@ public class MemberController {
             model.addAttribute("msg", "로그인 중 문제가 발생했습니다.");
             return "error/error";
         }
-    } // end of PostMapping("login")
+    }
 
 }
