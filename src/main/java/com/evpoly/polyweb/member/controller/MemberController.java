@@ -31,7 +31,7 @@ public class MemberController {
         try {
             System.out.println(map);
             if (map.get("mbrId") == null || map.get("mbrPw") == null) {
-                model.addAttribute("msg", "아이디 또는 비밀번호를 입력해주세요");
+                model.addAttribute("msg", "아이디 또는 비밀번호를 입력해주세요!");
                 return "error/error";
             }
 
