@@ -134,136 +134,51 @@
       </li><!-- End 직원정보 page Nav -->
       
     </aside><!-- End Sidebar-->
-
-
+    
+    <!-- 글 작성 page -->
     <main id="main" class="main">
-
         <div class="pagetitle">
-          <h1>공지사항</h1>
-          <nav>
+            <h1> 글 작성하기 </h1>
+            <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index">Home</a></li>
-              <li class="breadcrumb-item active">공지사항</li>
+              <li class="breadcrumb-item"><a href="notice-form">공지사항</a></li>
+              <li class="breadcrumb-item active">새 글 작성</li>
             </ol>
           </nav>
-        </div><!-- End Page Title -->
-
-
-
-        <section class="section area">
-          <div class="row">
-            <div class="col-lg-12">
-    
-
-              <!-- General Form Elements -->
-
-                <div class="table-responsive">
-                    <div class="table-wrapper">
-                        <div class="table-title">
-                            <div class="row">
-                                <div class="col-xs-5">
-                                    <h2>전체 글</h2>
-                                </div>
-                                <div class="col-xs-7">
-                                    <a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>	
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>제목</th>						
-                                    <th>글쓴이</th>
-                                    <th>작성일</th>
-                                    <th>조회</th>
-                                    <th>관리</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                  <td>25</td>
-                                  <td>2022년 06년 08일 공지(계도기간 관련)</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.06.08</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>24</td>
-                                  <td>2022년 05년 26일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.26</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>23</td>
-                                  <td>2022년 05년 10일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.10</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>                       
-                                </tr>
-                                <tr>
-                                  <td>22</td>
-                                  <td>2022년 04년 29일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.29</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>21</td>
-                                  <td>2022년 04년 06일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.0</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="clearfix">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                            </ul>
+        </div>
+        
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Vertical Form -->
+				            <form class="row g-3">
+				                <div class="col-12">
+				                    <label for="inputTitle" class="card-title">제목</label>
+				                    <input type="text" class="form-control" id="inputTitle">
+				                </div>
+				                <div class="col-12">
+				                    <label for="inputPassword" class="card-title">내용</label>
+				                    <div class="col-sm-12">
+				                        <textarea class="form-control" style="height: 100px"></textarea>
+				                    </div>
+				                </div>
+				                <div class="text-center">
+				                    <button type="submit" class="btn btn-primary">Submit</button>
+				                    <button type="reset" class="btn btn-secondary">Reset</button>
+				                </div>
+				            </form><!-- Vertical Form -->
                         </div>
                     </div>
-                </div>        
-            </div>    
+                </div>
+            </div>
+        </section>
+    </main>
 
 
 
-
-          </div>
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-
-</main><!-- End #main -->
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
