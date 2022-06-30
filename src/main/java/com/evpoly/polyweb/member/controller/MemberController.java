@@ -41,7 +41,7 @@ public class MemberController {
 
             if (memberVO != null) {
                 session.setAttribute("user", memberVO);
-                return "/index";
+                return "redirect:index";
             } else {
 
                 model.addAttribute("msg", "아이디 또는 비밀번호가 올바르지 않습니다.");
