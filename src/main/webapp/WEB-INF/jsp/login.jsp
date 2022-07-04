@@ -64,7 +64,7 @@
 											return;
 										} else {
 											$("#loginform").attr("action",
-													"${root}/user/login")
+													"${root}/login")
 													.submit();
 										}
 									});

@@ -154,7 +154,7 @@
                     <i class="bi bi-calendar3-event"></i>
                   </div>
                   <div class="ps-3">
-                     <h6>20</h6>
+                     <h6>${countList.get(0)}</h6>
                     <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
                   </div>
                   </div>
@@ -174,7 +174,7 @@
                       <i class="bi bi-calendar3-week"></i>
                   </div>
                   <div class="ps-3">
-                     <h6>60</h6>
+                     <h6>${countList.get(1)}</h6>
                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                    </div>
@@ -197,7 +197,7 @@
                     <i class="bi bi-calendar3"></i>
                    </div>
                   <div class="ps-3">
-                    <h6>150</h6>
+                    <h6>${countList.get(2)}</h6>
                     <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
                   </div>
                  </div>
@@ -217,14 +217,15 @@
                 <div id="reportsChart"></div>
 
                 <script>
+                  console.log(${countList})
                   document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: '총 유입 차량',
-                          data: [20, 60, 150]
+                          data: ${countList}
                         }, {
                           name: '위반 차량',
-                          data: [5, 13, 65]
+                          data: ${countViolationList}
                         }],
                         chart: {
                           height: 350,
