@@ -5,7 +5,7 @@
 <mapper namespace="com.evpoly.polyweb.member.dao.MemberDAO">
 
     <select id="login" parameterType="String" resultType="MemberVO">
-        SELECT 	mbr_id, mbr_pw
+        SELECT 	*
         FROM 	ev_mbr
         WHERE 	mbr_id = #{mbrId}
         AND 	mbr_pw = #{mbrPw}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evpoly.polyweb.mainPage.dao.MainPageDAO">
+
+    <select id="getDayCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW();
+    </select>
+
+    <select id="getWeekCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 WEEK ) AND NOW();
+    </select>
+
+    <select id="getMonthCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 MONTH ) AND NOW();
+    </select>
+
+    <select id="getViolationDayCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE (car_ev = "X" OR car_ev = "N") AND (car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW());
+    </select>
+
+    <select id="getViolationWeekCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE (car_ev = "X" OR car_ev = "N") AND (car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 WEEK ) AND NOW());
+    </select>
+
+    <select id="getViolationMonthCount" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ev_car_info
+        WHERE (car_ev = "X" OR car_ev = "N") AND (car_get_tm BETWEEN DATE_ADD(NOW(),INTERVAL -1 MONTH ) AND NOW());
+    </select>
+
+
+
+
+</mapper>
