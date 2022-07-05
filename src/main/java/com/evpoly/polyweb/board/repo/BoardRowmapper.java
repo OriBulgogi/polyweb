@@ -12,6 +12,7 @@ public class BoardRowmapper implements RowMapper<Board> {
 	@Override
 	public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Board board = new Board();
+		board.setNum(rs.getInt("num"));
 		board.setTitle(rs.getString("title"));
 		board.setContent(rs.getString("content"));
 		board.setWriter(rs.getString("writer"));
