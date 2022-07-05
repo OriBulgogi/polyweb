@@ -180,58 +180,20 @@
                                     <th>관리</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                  <td>25</td>
-                                  <td>2022년 06년 08일 공지(계도기간 관련)</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.06.08</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>24</td>
-                                  <td>2022년 05년 26일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.26</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>23</td>
-                                  <td>2022년 05년 10일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.10</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>                       
-                                </tr>
-                                <tr>
-                                  <td>22</td>
-                                  <td>2022년 04년 29일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.29</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>21</td>
-                                  <td>2022년 04년 06일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.0</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                            </tbody>
+                            <tbody class="ov">
+					            <c:forEach var="board" items="${boardList}" varStatus="status">
+					                <tr>
+					                    <td>${status.index + 1 }</td>
+					                    <!-- V1 -->
+					                    <td><a href="<c:url value='/notice/${board.num}'/>">${board.title}</a></td>
+					                    <!-- V2 -->
+					                    <td><a href="#" onclick="getNoticeDetail(${board.num})">${board.writer}</a></td>
+					                    <td>${board.regdate}</td>
+					                    <td>${board.viewnum}</td>
+					                    <td>글 삭제</td>
+					                </tr>
+					            </c:forEach>
+					        </tbody>
                         </table>
                         <div class="clearfix">
                             <ul class="pagination justify-content-center">
