@@ -7,5 +7,10 @@
         SELECT mbr_seq, mbr_nm, mbr_reg_tm
         FROM ev_mbr
     </select>
+    
+    <select id="delete">
+        DELETE FROM ev_mbr
+        WHERE mbr_seq = #{mbrSeq}
+    </select>
 
 </mapper>

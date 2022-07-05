@@ -27,5 +27,12 @@ public class StaffPageServiceImpl implements StaffPageService{
 		System.out.println("staffs: "+ staffs);
 		return staffs;
 	}
+
+	@Override
+	public String delete(int mbrSeq) {
+		staffPageDAO.delete(mbrSeq);
+		String answer = "ok";
+		return answer;
+	}
 	
 }

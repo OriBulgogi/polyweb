@@ -10,4 +10,6 @@ import com.evpoly.polyweb.staffPage.vo.StaffPageVO;
 public interface StaffPageDAO {
 	public List<StaffPageVO> getStaffs();
 
+	public String delete(int mbrSeq);
+
 }
