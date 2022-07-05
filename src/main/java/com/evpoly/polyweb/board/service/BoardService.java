@@ -24,9 +24,15 @@ public class BoardService {
 		return this.boardRepository.findList();
 	}
 	
-	
 	// 게시글 추가
 	public Board insert(Board board) {
 		return this.boardRepository.insert(board);
 	}
+	
+	// 게시글 삭제
+	public Integer delete(int num) {
+		log.debug("delete board num = {}", num);
+		return this.boardRepository.delete(num);
+	}
+	
 }

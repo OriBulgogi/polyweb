@@ -48,4 +48,12 @@ public class BoardRepository {
 		board.setNum(keyHolder.getKey().intValue());
 		return board;
 	}
+	
+	// 게시글 삭제
+	public Integer delete(int num) {
+		SqlParameterSource parameterSource = new MapSqlParameterSource("num", num);
+		log.debug("delete board num = {}", num);
+		return namedParameterJdbcTemplate.update(BoardSql.DELETE_BOARD, parameterSource);
+	}
+	
 }

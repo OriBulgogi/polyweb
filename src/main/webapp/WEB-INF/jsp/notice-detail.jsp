@@ -39,10 +39,10 @@
   
 
 
-    <script>
-        //$(document).ready(function(){
-        //    $('[data-toggle="tooltip"]').tooltip();
-        //});
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
     </script>
 
 </head>
@@ -165,7 +165,7 @@
                                     <h2>전체 글</h2>
                                 </div>
                                 <div class="col-xs-7">
-                                    <a href="notice-form" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>	
+                                    <a href="notice-form" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>   
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>제목</th>						
+                                    <th>제목</th>                     
                                     <th>글쓴이</th>
                                     <th>작성일</th>
                                     <th>조회</th>
@@ -181,23 +181,19 @@
                                 </tr>
                             </thead>
                             <tbody class="ov">
-					            <c:forEach var="board" items="${boardList}" varStatus="status">
-					                <tr>
-					                    <!-- # -->
-					                    <td>${status.index + 1}</td>
-					                    <!-- 제목 -->
-					                    <td><a href="<c:url value='/notice/${board.num}'/>">${board.title}</a></td>
-					                    <!-- 글쓴이 -->
-					                    <td>${board.writer}</td>
-					                    <!-- 작성일 -->
-					                    <td>${board.regdate}</td>
-					                    <!-- 조회수 -->
-					                    <td>${board.viewnum}</td>
-					                    <!-- 글 삭제 -->
-					                    <td><a href="#" class="delete" title="Delete" data-toggle="tooltip" onclick="location.href='boardDelete?num=${board.num}'"><i class="material-icons">&#xE5C9;</i></a></td>
-					                </tr>
-					            </c:forEach>
-					        </tbody>
+                                <c:forEach var="board" items="${boardList}" varStatus="status">
+                                    <tr>
+                                        <td>${status.index + 1 }</td>
+                                        <!-- V1 -->
+                                        <td><a href="<c:url value='/notice/${board.num}'/>">${board.title}</a></td>
+                                        <!-- V2 -->
+                                        <td><a href="#" onclick="getNoticeDetail(${board.num})">${board.writer}</a></td>
+                                        <td>${board.regdate}</td>
+                                        <td>${board.viewnum}</td>
+                                        <td>글 삭제</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
                         </table>
                         <div class="clearfix">
                             <ul class="pagination justify-content-center">
@@ -213,6 +209,10 @@
                     </div>
                 </div>        
             </div>    
+
+
+
+
           </div>
         </div>
       </section>

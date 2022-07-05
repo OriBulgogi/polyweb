@@ -12,4 +12,9 @@ public class BoardSql {
 		FROM ev_bbs
 	""";
 	
+	public static final String DELETE_BOARD = """
+		DELETE FROM ev_bbs
+		WHERE num = :num
+	""";
+	
 }
