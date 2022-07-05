@@ -39,10 +39,10 @@
   
 
 
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 
 </head>
@@ -142,7 +142,7 @@
             <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index">Home</a></li>
-              <li class="breadcrumb-item"><a href="notice-form">공지사항</a></li>
+              <li class="breadcrumb-item"><a href="notice">공지사항</a></li>
               <li class="breadcrumb-item active">새 글 작성</li>
             </ol>
           </nav>
@@ -154,15 +154,15 @@
                     <div class="card">
                         <div class="card-body">
                             <!-- Vertical Form -->
-				            <form class="row g-3">
+				            <form class="row g-3" id="board" method="post" action="">
 				                <div class="col-12">
-				                    <label for="inputTitle" class="card-title">제목</label>
-				                    <input type="text" class="form-control" id="inputTitle">
+				                    <label for="title" class="card-title">제목</label>
+				                    <input type="text" class="form-control" id="title" name="title">
 				                </div>
 				                <div class="col-12">
-				                    <label for="inputPassword" class="card-title">내용</label>
+				                    <label for="content" class="card-title">내용</label>
 				                    <div class="col-sm-12">
-				                        <textarea class="form-control" style="height: 100px"></textarea>
+				                        <textarea class="form-control" name="content" id="content" style="height: 100px"></textarea>
 				                    </div>
 				                </div>
 				                <div class="text-center">

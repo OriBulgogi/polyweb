@@ -71,18 +71,12 @@ public class MainController {
         return "notice-form";
     }
 
-    @RequestMapping(value = "notice", method = RequestMethod.GET)
-    public String notice(){
-        return "notice";
-    }
+    
 
     @RequestMapping(value = "staff", method = RequestMethod.GET)
     public String staff(){
         return "staff";
     }
     
-    @RequestMapping(value = "notice-form")
-    public String noticeform() {
-    	return "notice-form";
-    }
+    
 }
