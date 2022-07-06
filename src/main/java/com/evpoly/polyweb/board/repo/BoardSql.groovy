@@ -1,4 +1,4 @@
-package com.evpoly.polyweb.board.repo;
+package com.evpoly.polyweb.board.repo
 
 public class BoardSql {
 	
