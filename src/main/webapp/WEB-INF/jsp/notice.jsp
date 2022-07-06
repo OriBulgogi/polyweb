@@ -186,7 +186,7 @@
 					                    <!-- # -->
 					                    <td>${status.index + 1}</td>
 					                    <!-- 제목 -->
-					                    <td><a href="<c:url value='/notice/${board.num}'/>">${board.title}</a></td>
+					                    <td><a href="/noticeDetail?num=${board.num}">${board.title}</a></td>
 					                    <!-- 글쓴이 -->
 					                    <td>${board.writer}</td>
 					                    <!-- 작성일 -->
@@ -225,8 +225,9 @@
 
 
 
-</main><!-- End #main -->
-  <!-- ======= Footer ======= -->
+</main>
+<!-- End #main -->
+<!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="credits">

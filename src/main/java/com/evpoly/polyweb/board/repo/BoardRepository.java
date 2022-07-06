@@ -26,7 +26,7 @@ public class BoardRepository {
 		this.boardRowmapper = new BoardRowmapper();
 	}
 	
-	// TODO : 게시글 리스트
+	// 게시글 리스트
 	public List<Board> findList() {
 		log.debug("findList query : {}", BoardSql.SELECT_BOARD_LIST);
 		return namedParameterJdbcTemplate.query(BoardSql.SELECT_BOARD_LIST
@@ -54,6 +54,15 @@ public class BoardRepository {
 		SqlParameterSource parameterSource = new MapSqlParameterSource("num", num);
 		log.debug("delete board num = {}", num);
 		return namedParameterJdbcTemplate.update(BoardSql.DELETE_BOARD, parameterSource);
+	}
+
+	// 게시글 조회
+	public Board detail(int num) {
+		log.debug("board num = {}", num);
+		String qry = BoardSql.SELECT_BOARD_LIST
+						+ BoardSql.NUM_CONDITION;
+		SqlParameterSource parameterSource = new MapSqlParameterSource("num", num);
+		return namedParameterJdbcTemplate.queryForObject(qry, parameterSource, this.boardRowmapper);
 	}
 	
 }
