@@ -43,6 +43,9 @@ public class BoardController {
 			MemberVO member = (MemberVO) session.getAttribute("user");
 			board.setWriter(member.getMbrNm());
 			board.setCretId(member.getMbrId());
+			String content = board.getContent();
+			content = content.replace("\r\n", "<br>");
+			board.setContent(content);
 			//log.debug(member.toString());
 			log.debug("board = {}", board.toString());
 			boardService.insert(board);

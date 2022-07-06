@@ -158,13 +158,16 @@
                         <div class="card">
 				            <div class="card-header">작성일자 : ${board.cretDt }</div>
 				                <div class="card-body">
-				                    <h5 class="card-title">${board.title }</h5>
-				                    ${board.content }
+				                    <h3 style="padding: 20px 0 15px 0; color:#012970; font-size:25px; font-weight:500; font-family:"Poppins", sans-serif;">${board.title }</h3>
+				                    <a style="font-size:15px;">${board.content }</a>
 				                </div>
 				            <div class="card-footer">
 				              작성자 : ${board.writer }
 				            </div>
 				          </div>
+				          <div class="text-center">
+                               <button class="btn btn-primary" onclick="location.href='notice'">목록</button>
+                          </div>
                     <!-- End Card with header and footer -->
                 </div>
             </div>
