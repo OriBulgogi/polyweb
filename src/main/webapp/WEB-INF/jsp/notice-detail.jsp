@@ -143,7 +143,8 @@
           <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index">Home</a></li>
-              <li class="breadcrumb-item active">공지사항</li>
+              <li class="breadcrumb-item"><a href="notice">공지사항</a></li>
+              <li class="breadcrumb-item active">${board.title }</li>
             </ol>
           </nav>
         </div><!-- End Page Title -->
@@ -151,70 +152,22 @@
 
 
         <section class="section area">
-          <div class="row">
-            <div class="col-lg-12">
-    
-
-              <!-- General Form Elements -->
-
-                <div class="table-responsive">
-                    <div class="table-wrapper">
-                        <div class="table-title">
-                            <div class="row">
-                                <div class="col-xs-5">
-                                    <h2>전체 글</h2>
-                                </div>
-                                <div class="col-xs-7">
-                                    <a href="notice-form" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>글쓰기</span></a>   
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>제목</th>                     
-                                    <th>글쓴이</th>
-                                    <th>작성일</th>
-                                    <th>조회</th>
-                                    <th>관리</th>
-                                </tr>
-                            </thead>
-                            <tbody class="ov">
-                                <c:forEach var="board" items="${boardList}" varStatus="status">
-                                    <tr>
-                                        <td>${status.index + 1 }</td>
-                                        <!-- V1 -->
-                                        <td><a href="<c:url value='/notice/${board.num}'/>">${board.title}</a></td>
-                                        <!-- V2 -->
-                                        <td><a href="#" onclick="getNoticeDetail(${board.num})">${board.writer}</a></td>
-                                        <td>${board.regdate}</td>
-                                        <td>${board.viewnum}</td>
-                                        <td>글 삭제</td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                        <div class="clearfix">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>        
-            </div>    
-
-
-
-
-          </div>
-        </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Card with header and footer -->
+                        <div class="card">
+				            <div class="card-header">작성일자 : ${board.cretDt }</div>
+				                <div class="card-body">
+				                    <h5 class="card-title">${board.title }</h5>
+				                    ${board.content }
+				                </div>
+				            <div class="card-footer">
+				              작성자 : ${board.writer }
+				            </div>
+				          </div>
+                    <!-- End Card with header and footer -->
+                </div>
+            </div>
       </section>
 
 

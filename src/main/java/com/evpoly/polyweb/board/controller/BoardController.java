@@ -30,7 +30,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
-    public String notice(ModelMap model){
+    public String notice(ModelMap model) {
     	List<Board> boardList = boardService.getBoardList();
     	model.addAttribute("boardList", boardList);
         return "notice";
@@ -67,6 +67,21 @@ public class BoardController {
 		} catch (Exception e) {
 			return "redirect:/notice";
 		}
+	}
+	
+	// 게시글 상세조회
+	@RequestMapping(value = "/noticeDetail")
+	public String noticeDetail(@RequestParam("num") int num, ModelMap model) throws Exception {
+		
+		try {
+			Board board = boardService.boardRead(num);
+			System.out.println(board);
+			model.addAttribute("board", board);
+			return "notice-detail";
+		} catch (Exception e) {
+			return "notice";
+		}
+		
 	}
 	
 }

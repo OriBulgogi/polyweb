@@ -34,5 +34,9 @@ public class BoardService {
 		log.debug("delete board num = {}", num);
 		return this.boardRepository.delete(num);
 	}
-	
+
+	public Board boardRead(int num) throws Exception{
+		return this.boardRepository.detail(num);
+	}
+
 }

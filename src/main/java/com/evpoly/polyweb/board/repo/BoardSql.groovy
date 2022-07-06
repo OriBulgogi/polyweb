@@ -10,6 +10,7 @@ public class BoardSql {
 	public static final String SELECT_BOARD_LIST = """
 		SELECT *
 		FROM ev_bbs
+		WHERE 1=1
 	""";
 	
 	public static final String DELETE_BOARD = """
@@ -17,4 +18,7 @@ public class BoardSql {
 		WHERE num = :num
 	""";
 	
+	public static final String NUM_CONDITION = """
+		AND num = :num
+	""";
 }
