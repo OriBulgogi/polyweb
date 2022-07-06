@@ -180,18 +180,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <c:forEach var="staffs" items="${staffs}" varStatus="status">
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="#">이강박</a></td>
-                                    <td>2022/01/01</td>                        
+                                    <td>${status.count}</td>
+                                    <td><a href="#">${staffs.mbrNm}</a></td>
+                                    <td>${staffs.mbrRegTm}</td>                        
                                     <td>관리자</td>
                                     <td><span class="status text-success">&bull;</span> 근무 중 </td>
                                     <td>
                                         <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                        <a href="/staff/staffDel.do?seq=${staffs.mbrSeq}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                     </td>
                                 </tr>
-                                <tr>
+                                <c:if test="${status.step eq 1}">
+                                
+                                </c:if>
+                                </c:forEach>
+
+                                
+                                <!-- <tr>
                                     <td>2</td>
                                     <td><a href="#">이강</a></td>
                                     <td>2022/05/04</td>                       
@@ -234,7 +241,7 @@
                                         <a href="#" class="settings" title="Settings" data-toggle="tooltip"></i></a>
                                         <a href="#" class="delete" title="Delete" data-toggle="tooltip"></a>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                         <div class="clearfix">

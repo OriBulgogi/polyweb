@@ -31,6 +31,64 @@
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
 
+
+
+<!-- JAVASCRIPT FUNCTION -->
+<script type="text/javascript"
+    src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+ $(document).ready(function(){
+         $.ajax({
+             async : true, // 기본값은 true
+             type : "GET",
+             url : "http://localhost:8080/manage-area.do",
+             success : function(data) {
+
+
+                var tempHtml = "";
+
+                $(data).each(function(){
+                	console.log(this.pkgAreaSeq + " " + this.pkgAreaName + " " + this.pkgTotalLin);
+
+                    tempHtml +=
+                    '<div class="col-xxl-6 col-md-6">' +
+                        '<div class="card info-card floor1-card" style="overflow: hidden;' +
+                       ' white-space: nowrap; overflow-x:auto;"  >' +
+                          '<div class="card-body">'+
+                          '<h5 class="area-title-ko">수현 아파트 <span>지하 1 ~ 2층 </span></h5>'+
+                            '<div class="parkingpic">'+
+                              '<div class="d-flex align-items-center">'+
+                                '<div class="col-4post-item clearfix" >'+
+                                '<img src="${pageContext.request.contextPath}/image/parking1.jpg" alt="">'+
+                                '</div>'+
+                                '<h4 class="col-2 clear fix">'+
+                                  '<p>전체 주차 구역 : <span' + this.pkgAreaSeq + '>' + this.pkgAreaSeq + '</span>개</p>'+
+                                  '<p>현재 주차 개수 : <span' + this.pkgAreaName + '}>' + this.pkgAreaName + '</span>개</p>'+
+                                  '<p>남은 주차 자리 : <span' + this.pkgTotalLin + '}>' + this.pkgTotalLin + '</span>개</p>'+
+                                '</h4>'+
+                              '</div>'+
+
+                              '<div class = " clearfix">'+
+                              '<button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='+""+ "'history-date'"+ '">구역자세히</button>'+
+                              '</div>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                     '</div>'
+                });
+
+                 $("#hereUhTae").append(tempHtml);
+             },
+             error : function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert("통신 실패.");
+             }
+         });
+     });
+
+</script>
+
+
 <body>
     <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -143,7 +201,14 @@
                   <div class="card scroll-card" style="overflow-x:hidden; overflow-y:auto; width:3200px; height:600px;"> 
 
                       <div class="box">
-                        <div class="row">
+                        <div id="hereUhTae" class="row">
+
+
+
+
+
+
+
 
                               <!-- 1번 아파트 -->
                               <div class="col-xxl-6 col-md-6">
@@ -229,8 +294,8 @@
                                   </div>
                                 </div>
                               </div>
-
                               </div><!-- 3번 아파트-->
+
                         </div>
                     </div>
                   </div>

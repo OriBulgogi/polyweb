@@ -39,10 +39,10 @@
   
 
 
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
     </script>
 
 </head>
@@ -134,51 +134,54 @@
       </li><!-- End 직원정보 page Nav -->
       
     </aside><!-- End Sidebar-->
-    
-    <!-- 글 작성 page -->
+
+
     <main id="main" class="main">
+
         <div class="pagetitle">
-            <h1> 글 작성하기 </h1>
-            <nav>
+          <h1>공지사항</h1>
+          <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index">Home</a></li>
               <li class="breadcrumb-item"><a href="notice">공지사항</a></li>
-              <li class="breadcrumb-item active">새 글 작성</li>
+              <li class="breadcrumb-item active">${board.title }</li>
             </ol>
           </nav>
-        </div>
-        
-        <section class="section">
+        </div><!-- End Page Title -->
+
+
+
+        <section class="section area">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- Vertical Form -->
-				            <form class="row g-3" id="board" method="post" action="">
-				                <div class="col-12">
-				                    <label for="title" class="card-title">제목</label>
-				                    <input type="text" class="form-control" id="title" name="title">
+                    <!-- Card with header and footer -->
+                        <div class="card">
+				            <div class="card-header">작성일자 : ${board.cretDt }</div>
+				                <div class="card-body">
+				                    <h3 style="padding: 20px 0 15px 0; color:#012970; font-size:25px; font-weight:500; font-family:"Poppins", sans-serif;">${board.title }</h3>
+				                    <a style="font-size:15px;">${board.content }</a>
 				                </div>
-				                <div class="col-12">
-				                    <label for="content" class="card-title">내용</label>
-				                    <div class="col-sm-12">
-				                        <textarea class="form-control" name="content" id="content" style="height: 100px"></textarea>
-				                    </div>
-				                </div>
-				                <div class="text-center">
-				                    <button type="submit" class="btn btn-primary">Submit</button>
-				                    <button type="reset" class="btn btn-secondary">Reset</button>
-				                </div>
-				            </form><!-- Vertical Form -->
-                        </div>
-                    </div>
+				            <div class="card-footer">
+				              작성자 : ${board.writer }
+				            </div>
+				          </div>
+				          <div class="text-center">
+                               <button class="btn btn-primary" onclick="location.href='notice'">목록</button>
+                          </div>
+                    <!-- End Card with header and footer -->
                 </div>
             </div>
-        </section>
-    </main>
+      </section>
 
 
 
+
+
+
+
+
+
+</main><!-- End #main -->
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 

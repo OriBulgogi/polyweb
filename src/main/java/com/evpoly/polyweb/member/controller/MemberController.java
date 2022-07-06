@@ -41,6 +41,7 @@ public class MemberController {
 
             if (memberVO != null) {
                 session.setAttribute("user", memberVO);
+                session.setAttribute("mbr_nm", memberVO.getMbrNm());
                 return "redirect:index";
             } else {
 

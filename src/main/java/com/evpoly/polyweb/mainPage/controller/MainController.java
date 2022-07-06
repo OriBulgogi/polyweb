@@ -1,6 +1,10 @@
 package com.evpoly.polyweb.mainPage.controller;
 
+import com.evpoly.polyweb.board.model.Board;
+import com.evpoly.polyweb.board.service.BoardService;
 import com.evpoly.polyweb.mainPage.dao.MainPageDAO;
+import com.evpoly.polyweb.staffPage.service.StaffPageService;
+
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
@@ -22,6 +26,16 @@ public class MainController {
 
     @Autowired
     MainPageDAO mainPageDAO;
+    
+    @Autowired
+    StaffPageService staffPageService;
+    
+    private BoardService boardService;
+	
+	@Autowired
+	public MainController(BoardService boardService) {
+		this.boardService = boardService;
+	}
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homeone(Locale locale, Model model) {
@@ -47,6 +61,8 @@ public class MainController {
         model.addAttribute("countList",countList);
         model.addAttribute("countViolationList",countViolationList);
 
+        List<Board> boardList = boardService.getBoardListForIndex();
+        model.addAttribute("boardList", boardList);
 
         return "/index";
     }
@@ -71,18 +87,15 @@ public class MainController {
         return "notice-form";
     }
 
-    @RequestMapping(value = "notice", method = RequestMethod.GET)
-    public String notice(){
-        return "notice";
-    }
+    
 
-    @RequestMapping(value = "staff", method = RequestMethod.GET)
-    public String staff(){
+    //직원 정보
+    @RequestMapping(value = "/staff", method = RequestMethod.GET)
+    public String staff(Model model){
+    	model.addAttribute("staffs", staffPageService.getStaffs());
+    	System.out.println("staffs: "+staffPageService.getStaffs());
         return "staff";
     }
     
-    @RequestMapping(value = "notice-form")
-    public String noticeform() {
-    	return "notice-form";
-    }
+    
 }

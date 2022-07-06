@@ -39,10 +39,10 @@
   
 
 
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+    <script>
+        //$(document).ready(function(){
+        //    $('[data-toggle="tooltip"]').tooltip();
+        //});
     </script>
 
 </head>
@@ -180,58 +180,24 @@
                                     <th>관리</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                  <td>25</td>
-                                  <td>2022년 06년 08일 공지(계도기간 관련)</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.06.08</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>24</td>
-                                  <td>2022년 05년 26일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.26</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>23</td>
-                                  <td>2022년 05년 10일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.05.10</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>                       
-                                </tr>
-                                <tr>
-                                  <td>22</td>
-                                  <td>2022년 04년 29일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.29</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>21</td>
-                                  <td>2022년 04년 06일 공지</td>
-                                  <td>HUSTAR</td>
-                                  <td>2020.04.0</td>
-                                  <td>100</td>
-                                  <td>
-                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                  </td>
-                                </tr>
-                            </tbody>
+                            <tbody class="ov">
+					            <c:forEach var="board" items="${boardList}" varStatus="status">
+					                <tr>
+					                    <!-- # -->
+					                    <td>${status.index + 1}</td>
+					                    <!-- 제목 -->
+					                    <td><a href="/noticeDetail?num=${board.num}">${board.title}</a></td>
+					                    <!-- 글쓴이 -->
+					                    <td>${board.writer}</td>
+					                    <!-- 작성일 -->
+					                    <td>${board.regdate}</td>
+					                    <!-- 조회수 -->
+					                    <td>${board.viewnum}</td>
+					                    <!-- 글 삭제 -->
+					                    <td><a href="#" class="delete" title="Delete" data-toggle="tooltip" onclick="location.href='boardDelete?num=${board.num}'"><i class="material-icons">&#xE5C9;</i></a></td>
+					                </tr>
+					            </c:forEach>
+					        </tbody>
                         </table>
                         <div class="clearfix">
                             <ul class="pagination justify-content-center">
@@ -247,10 +213,6 @@
                     </div>
                 </div>        
             </div>    
-
-
-
-
           </div>
         </div>
       </section>
@@ -263,8 +225,9 @@
 
 
 
-</main><!-- End #main -->
-  <!-- ======= Footer ======= -->
+</main>
+<!-- End #main -->
+<!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="credits">
