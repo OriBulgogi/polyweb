@@ -39,4 +39,8 @@ public class BoardService {
 		return this.boardRepository.detail(num);
 	}
 
+	// index page 공지 목록
+	public List<Board> getBoardListForIndex() {
+		return this.boardRepository.findListForIndex();
+	}
 }

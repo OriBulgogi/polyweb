@@ -65,4 +65,12 @@ public class BoardRepository {
 		return namedParameterJdbcTemplate.queryForObject(qry, parameterSource, this.boardRowmapper);
 	}
 	
+	// 게시글 리스트
+	public List<Board> findListForIndex() {
+		log.debug("findList query : {}", BoardSql.SELECT_BOARD_FIVE);
+		return namedParameterJdbcTemplate.query(BoardSql.SELECT_BOARD_FIVE
+												, EmptySqlParameterSource.INSTANCE
+												, this.boardRowmapper);
+	}
+	
 }

@@ -61,6 +61,7 @@ public class BoardController {
 		return "notice-detail";
 	}
 	
+	// 게시글 삭제
 	@RequestMapping(value = "/boardDelete")
 	public String deleteBoard(@RequestParam("num") int num) throws Exception {
 		try {
@@ -84,7 +85,6 @@ public class BoardController {
 		} catch (Exception e) {
 			return "notice";
 		}
-		
 	}
 	
 }

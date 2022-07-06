@@ -286,32 +286,10 @@
                 <h5 class="card-title-ko">NOTICE <span> |  최신순</span></h5>
 
                 <div class="news">
-                  <div class="post-item clearfix">
-                    <!--<img src="assets/img/news-1.jpg" alt="">-->
-                    <h4><a href="#">2022년 06년 08일 공지(계도기간 관련)</a></h4>
-                    <p>Manager : 휴스타</p>
-                  </div>
-
-                  <div class="post-item clearfix">
-                    <h4><a href="#">2022년 05년 26일 공지</a></h4>
-                    <p>Manager : 휴스타</p>
-                  </div>
-
-                  <div class="post-item clearfix">
-                    <h4><a href="#">2022년 05년 10일 공지</a></h4>
-                    <p>Manager : 휴스타</p>
-                  </div>
-
-                  <div class="post-item clearfix">
-                    <h4><a href="#">2022년 04년 29일 공지</a></h4>
-                    <p>Manager : 휴스타</p>
-                  </div>
-
-                  <div class="post-item clearfix">
-                    <h4><a href="#">2022년 04년 06일 공지</a></h4>
-                    <p>Manager : 휴스타</p>
-                  </div>
-
+                    <c:forEach var="board" items="${boardList }" varStatus="status">
+                        <h4><a href="/noticeDetail?num=${board.num}">${board.title}</a></h4>
+                        <p>작성자 : ${board.writer }</p>
+                    </c:forEach>
                 </div><!-- End sidebar recent posts-->
 
               </div>
