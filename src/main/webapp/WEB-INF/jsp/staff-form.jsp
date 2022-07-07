@@ -171,7 +171,7 @@
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label" style="font-size:15px;">관리 주차장</label>
                                     <div class="col-sm-10">
-                                        <select class="form-select" aria-label="Default select example" name="pkgSelect">
+                                        <select class="form-select" aria-label="Default select example" name="pkgAreaSeq">
                                             <option selected disabled>관리 주차 구역을 고르세요.</option>
                                             <c:forEach var="pkgAreas" items="${pkgAreas}" varStatus="status">
                                                 <option value="${pkgAreas.pkgAreaSeq}">${pkgAreas.pkgAreaName}</option>
