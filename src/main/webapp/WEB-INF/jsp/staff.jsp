@@ -164,7 +164,7 @@
                                     <h2>직원 리스트</h2>
                                 </div>
                                 <div class="col-xs-7">
-                                    <a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>직원 등록</span></a>	
+                                    <a href="/staff-form" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>직원 등록</span></a>	
                                 </div>
                             </div>
                         </div>
@@ -185,10 +185,22 @@
                                     <td>${status.count}</td>
                                     <td><a href="#">${staffs.mbrNm}</a></td>
                                     <td>${staffs.mbrRegTm}</td>                        
-                                    <td>관리자</td>
-                                    <td><span class="status text-success">&bull;</span> 근무 중 </td>
                                     <td>
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                        <c:choose>
+                                        <c:when test="${staffs.mbrPosition eq 0 }">마스터</c:when>
+                                        <c:when test="${staffs.mbrPosition eq 1 }">관리자</c:when>
+                                        <c:when test="${staffs.mbrPosition eq 2 }">직원</c:when>
+                                        </c:choose>
+                                    </td>
+                                    <td>
+                                    <c:choose>
+                                        <c:when test="${staffs.mbrState eq 0 }"><span class="status text-danger">&bull;</span> 퇴근 </c:when>
+                                        <c:when test="${staffs.mbrState eq 1 }"><span class="status text-success">&bull;</span> 근무 중 </c:when>
+                                    </c:choose>
+                                    
+                                    </td>
+                                    <td>
+<!--                                         <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a> -->
                                         <a href="/staff/staffDel.do?seq=${staffs.mbrSeq}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                     </td>
                                 </tr>
