@@ -4,13 +4,41 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.evpoly.polyweb.staffPage.dao.StaffPageDAO">
     <select id="getStaffs" resultType="com.evpoly.polyweb.staffPage.vo.StaffPageVO">
-        SELECT mbr_seq, mbr_nm, mbr_reg_tm
+        SELECT mbr_seq, mbr_nm, mbr_reg_tm, mbr_position, mbr_state
         FROM ev_mbr
     </select>
     
     <select id="delete">
         DELETE FROM ev_mbr
         WHERE mbr_seq = #{mbrSeq}
+    </select>
+    
+    <select id="save">
+        INSERT INTO ev_mbr (
+            pkg_area_seq,
+            mbr_id,
+            mbr_pw,
+            mbr_nm,
+            mbr_email,
+            cretr_id,
+            cret_dt,
+            mbr_reg_tm
+        )
+        VALUES(
+            #{pkgAreaSeq},
+            #{mbrId},
+            #{mbrPw},
+            #{mbrNm},
+            #{mbrEmail},
+            'master',
+            NOW(),
+            NOW()
+        )
+    </select>
+    
+    <select id="getPkgs" resultType="com.evpoly.polyweb.staffPage.vo.PkgAreaVO">
+        SELECT pkg_area_seq, pkg_area_name
+        FROM ev_pkg_area
     </select>
 
 </mapper>
