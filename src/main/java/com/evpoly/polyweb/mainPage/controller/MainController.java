@@ -76,15 +76,19 @@ public class MainController {
         return "notice-form";
     }
 
-    
-
     //직원 정보
-    @RequestMapping(value = "/staff", method = RequestMethod.GET)
+    @RequestMapping(value = "staff", method = RequestMethod.GET)
     public String staff(Model model){
     	model.addAttribute("staffs", staffPageService.getStaffs());
-    	System.out.println("staffs: "+staffPageService.getStaffs());
+    	//System.out.println("staffs: "+staffPageService.getStaffs());
         return "staff";
     }
-    
-    
+
+    //직원 등록
+    @RequestMapping(value = "staff-form", method = RequestMethod.GET)
+    public String staffForm(Model model){
+    	model.addAttribute("pkgAreas", staffPageService.getPkgs());
+    	//System.out.println("pkgAreas"+staffPageService.getPkgs());
+        return "staff-form";
+    }
 }

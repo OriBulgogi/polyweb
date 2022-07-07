@@ -7,7 +7,13 @@ import lombok.Data;
 
 @Data
 public class StaffPageVO {
-	private String mbrSeq;
+	private int mbrSeq;
+	private int pkgAreaSeq;
+	private String mbrId;
+	private String mbrPw;
+	private int mbrState;
+	private int mbrPosition;
+	private String mbrEmail;
 	private String mbrNm;
 	private Date mbrRegTm;
 
