@@ -26,7 +26,6 @@
   <link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
