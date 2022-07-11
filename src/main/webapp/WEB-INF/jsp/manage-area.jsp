@@ -47,7 +47,7 @@
 
 
                 var tempHtml = "";
-
+				var imgIndex = 0;
                 $(data).each(function(){
                 	console.log(this.pkgAreaSeq + " " + this.pkgAreaName + " " + this.pkgTotalLin);
 
@@ -56,16 +56,16 @@
                         '<div class="card info-card floor1-card" style="overflow: hidden;' +
                        ' white-space: nowrap; overflow-x:auto;"  >' +
                           '<div class="card-body">'+
-                          '<h5 class="area-title-ko">수현 아파트 <span>지하 1 ~ 2층 </span></h5>'+
+                          '<h5 class="area-title-ko">'+ this.pkgAreaName +'<span>지하 1 ~ 2층 </span></h5>'+
                             '<div class="parkingpic">'+
                               '<div class="d-flex align-items-center">'+
                                 '<div class="col-4post-item clearfix" >'+
-                                '<img src="${pageContext.request.contextPath}/image/parking1.jpg" alt="">'+
+                                '<img src="${pageContext.request.contextPath}/image/parking'+(++imgIndex) +'.jpg" alt="">'+
                                 '</div>'+
                                 '<h4 class="col-2 clear fix">'+
-                                  '<p>전체 주차 구역 : <span' + this.pkgAreaSeq + '>' + this.pkgAreaSeq + '</span>개</p>'+
-                                  '<p>현재 주차 개수 : <span' + this.pkgAreaName + '}>' + this.pkgAreaName + '</span>개</p>'+
-                                  '<p>남은 주차 자리 : <span' + this.pkgTotalLin + '}>' + this.pkgTotalLin + '</span>개</p>'+
+                                  '<p>전체 주차 구역 : <span' + this.pkgTotalLin  + '>' + this.pkgTotalLin  + '</span>개</p>'+
+                                  '<p>현재 주차 개수 : <span' + this.pkgLinUse + '}>' + this.pkgLinUse  + '</span>개</p>'+
+                                  '<p>남은 주차 자리 : <span' + (this.pkgTotalLin - this.pkgLinUse) + '}>' + (this.pkgTotalLin - this.pkgLinUse) + '</span>개</p>'+
                                 '</h4>'+
                               '</div>'+
 
@@ -158,7 +158,6 @@
       </li><!-- End 주차내역 Nav -->
 
 
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="notice">
           <i class="bi bi-question-circle"></i>
@@ -202,99 +201,6 @@
 
                       <div class="box">
                         <div id="hereUhTae" class="row">
-
-
-
-
-
-
-
-
-                              <!-- 1번 아파트 -->
-                              <div class="col-xxl-6 col-md-6">
-                                <div class="card info-card floor1-card" style="overflow: hidden;
-                                white-space: nowrap; overflow-x:auto;"  >
-                                  <div class="card-body">
-                                  <h5 class="area-title-ko">수현 아파트 <span>지하 1 ~ 2층 </span></h5>
-                                    <div class="parkingpic">
-                                      <div class="d-flex align-items-center">
-                                        <div class="col-4post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/parking1.jpg" alt="">
-                                        </div>
-                                        <h4 class="col-2 clear fix">
-                                          <p>전체 주차 구역 : <span ${Area.totalPk}>10</span>개</p>
-                                          <p>현재 주차 개수 : <span ${Area.nowPk}>8</span>개</p>
-                                          <p>남은 주차 자리 : <span ${Area.leftPk}>2</span>개</p>
-                                        </h4>
-                                      </div>
-
-                                      <div class = " clearfix">
-                                      <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-date'">구역자세히</button>
-                                      </div>
-
-                                    </div>
-                                  </div>
-                                </div>
-
-                              </div><!-- 1번 아파트-->
-
-
-
-                              <!-- 2번 아파트 -->
-                              <div class="col-xxl-6 col-md-6">
-                                <div class="card info-card floor1-card" style="overflow: hidden;
-                                white-space: nowrap; overflow-x:auto;"  >
-                                  <div class="card-body">
-                                  <h5 class="area-title-ko">예림 마트 <span>지상 1층 </span></h5>
-                                    <div class="parkingpic">
-                                      <div class="d-flex align-items-center">
-                                        <div class="col-4post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/parking2.jpg" alt="">
-                                        </div>
-                                        <h4 class="clear fix">
-                                        <p>전체 주차 구역 : <span> 5</span>개</p>
-                                        <p>현재 주차 개수 : <span> 2</span>개</p>
-                                        <p>남은 주차 자리 : <span> 3</span>개</p>
-                                        </h4>
-                                      </div>
-
-                                      <div class = " clearfix">
-                                      <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-date'">구역자세히</button>
-                                      </div>
-                                      
-                                    </div>
-                                  </div>
-                                </div>
-                              </div><!-- 2번 아파트-->
-
-
-                              <!-- 3번 아파트 -->
-                              <div class="col-xxl-6 col-md-6">
-                                <div class="card info-card floor1-card" style="overflow: hidden;
-                                white-space: nowrap; overflow-x:auto;"  >
-                                  <div class="card-body">
-                                  <h5 class="area-title-ko">화영 아파트 <span>지하 1~3층</span></h5>
-                                    <div class="parkingpic">
-                                      <div class="d-flex align-items-center">
-                                        <div class="col-4post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/parking3.jpg" alt="">
-                                        </div>
-                                        <h4 class="col-2 clear fix">
-                                        <p>전체 주차 구역 : <span> 25</span>개</p>
-                                        <p>현재 주차 개수 : <span> 6</span>개</p>
-                                        <p>남은 주차 자리 : <span> 19</span>개</p>
-                                        </h4>
-                                      </div>
-
-                                      <div class = " clearfix">
-                                      <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-date'">구역자세히</button>
-                                      </div>
-                                      
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              </div><!-- 3번 아파트-->
 
                         </div>
                     </div>
