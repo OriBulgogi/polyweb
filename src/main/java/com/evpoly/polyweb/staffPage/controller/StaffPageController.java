@@ -26,20 +26,19 @@ public class StaffPageController {
 	@RequestMapping("staffDel.do")
 	public RedirectView deleteStaff(Model model,
 			@RequestParam(value="seq") int mbrSeq) {
-		System.out.println("-----staffDel.do-----");
+		//System.out.println("-----staffDel.do-----");
 		
 		String answer = staffPageService.delete(mbrSeq);
-		System.out.println(answer);
+		//System.out.println(answer);
 		
 		return new RedirectView("/staff");
 	}
 	
 	@RequestMapping("staffsave.do")
-	public RedirectView saveStaff(Model model, HttpServletRequest request, PkgAreaVO pkgAreaVo, StaffPageVO staffPageVo) {
-		System.out.println("----staffsave.do----: "+ staffPageVo);
-		staffPageVo.setPkgAreaSeq(Integer.parseInt(request.getParameter("pkgSelect")));
+	public RedirectView saveStaff(Model model,StaffPageVO staffPageVo) {
+		//System.out.println("----staffsave.do----: "+ staffPageVo);
 		String answer = staffPageService.save(staffPageVo);
-		System.out.println(answer);
+		//System.out.println(answer);
 
 		return new RedirectView("/staff");
 	}
