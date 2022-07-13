@@ -195,6 +195,12 @@
                                         <input type="text" class="form-control" id="mbrEmail" name="mbrEmail">
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label" style="font-size:15px;">입사일</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="mbrRegTm" name="mbrRegTm">
+                                    </div>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Join</button>
                                 </div>
