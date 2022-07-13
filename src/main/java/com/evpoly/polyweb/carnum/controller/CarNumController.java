@@ -1,5 +1,6 @@
 package com.evpoly.polyweb.carnum.controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class CarNumController {
 	@RequestMapping(value = "history-carnum")
 	public String carNumHistory(ModelMap model) {
 		List<Car> carList = carService.getCarList();
+		
 		model.addAttribute("carList", carList);
 		log.debug("=====================================carList : {}", carList);
 		return "history-carnum";
