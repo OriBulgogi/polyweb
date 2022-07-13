@@ -67,10 +67,10 @@ public class MainController {
         return "/index";
     }
 
-    @RequestMapping(value = "history-carnum", method = RequestMethod.GET)
-    public String carnum(){
-        return "history-carnum";
-    }
+//    @RequestMapping(value = "history-carnum", method = RequestMethod.GET)
+//    public String carnum(){
+//        return "history-carnum";
+//    }
 
     @RequestMapping(value = "history-date", method = RequestMethod.GET)
     public String date(){

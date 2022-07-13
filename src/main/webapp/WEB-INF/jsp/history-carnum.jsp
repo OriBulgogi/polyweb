@@ -193,148 +193,31 @@
 
                           <div class="box" id="build1">
                             <div class="row">
-                            <!-- 차1-1-->
-                            <div class="aboutcar col-6">
-                              <div class="card" id="carcard"style="overflow: hidden; overflow-x:auto;
-                              white-space: nowrap; ">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">00수 7777</h5>
-                                  <div class="carpic">
-                                    <div class="d-flex align-items-center">
-                                      <div class="post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/evnum.jpg" alt="">
-                                      </div>
-
-                                        <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-                                          <p>2022. 06. 20. </p>
-                                          <p>고속 충전 구역</p>
-                                          <p>1층 C구역</p>
-                                        </h4>
-                                        <h4 class="col-3 clear fix mt-2"style="margin-left: 40px;">
-                                          <p class="mt-4">입차 시간 : <span> 06:17:42 PM</span> </p>
-                                          <p>출차 시간 : <span> </span> </p>
-                                        </h4>
-
-                                      </div>
-                                        
-
-                                      
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차1-1-->
-
-
-                            <!-- 차1-2 -->
-                            <div class="aboutcar col-6">
-                              <div class="card"id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">00수 7777</h5>
-                                  <div class="carpic">
-                                    <div class="d-flex align-items-center">
-                                      <div class="post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/car1.jpg" alt="">
-                                      </div>
-                                        <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-                                          <p>2022. 06. 01. </p>
-                                          <p>고속 충전 구역</p>
-                                          <p>2층 B구역</p>
-                                        </h4>
-                                        <h4 class="col-3 clear fix mt-2"style="margin-left: 40px;">
-                                          <p class="mt-4">입차 시간 : <span> 01:35:46 PM</span> </p>
-                                          <p>출차 시간 : <span> 10:12:27 PM</span> </p>
-                                        </h4>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차1-2-->
-
-
-                            
-                            <!-- 차1-3 -->
-                            <div class="aboutcar col-6">
-                              <div class="card "id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">12가 0524</h5>
-                                  <div class="carpic">
-                                      <div class="d-flex align-items-center">
-                                            <div class="post-item clearfix" >
-                                            <img src="${pageContext.request.contextPath}/image/car.jpg" alt="">
-                                            </div>
-                                            <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-                                              <p>2022. 01. 17. </p>
-                                              <p>일반 충전 구역</p>
-                                              <p>2층 C구역</p>
-                                            </h4>
-                                            <h4 class="col-3 clear fix mt-2"style="margin-left: 40px;">
-                                              <p class="mt-4">입차 시간 : <span> 09:10:38 AM</span> </p>
-                                              <p>출차 시간 : <span> 08:23:43 PM</span> </p>
-                                            </h4>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차1-3-->
-
-
-
-                            <!-- 차2-1 -->
-                            <div class="aboutcar col-6">
-                              <div class="card " id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;" >
-                                  <div class="card-body">
-                                    <h5 class="carname area-title-ko">00수 7777</h5>
-                                        <div class="carpic">
-                                          <div class="d-flex align-items-center">
-                                              <div class="post-item clearfix" >
-                                              <img src="${pageContext.request.contextPath}/image/car1.jpg" alt="">
-                                              </div>
-                                              <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-                                                <p>2022. 06. 14. </p>
-                                                <p>급속 충전 구역</p>
-                                                <p>2층 A구역</p>
-                                              </h4>
-                                              <h4 class="col-3 clear fix mt-2"style="margin-left: 40px;">
-                                                <p class="mt-4">입차 시간 : <span> 04:14:58 PM</span> </p>
-                                                <p>출차 시간 : <span> 04:56:27 PM</span> </p>
-                                              </h4>
-
-                                        </div>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div><!-- 차2-1-->
-
-
-                            <!-- 차2-2 -->
-                            <div class="aboutcar col-6">
-                              <div class="card " id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;" >
-                                  <div class="card-body">
-                                    <h5 class="carname area-title-ko">22휴 0614</h5>
-                                        <div class="carpic">
-                                          <div class="d-flex align-items-center">
-                                              <div class="post-item clearfix" >
-                                              <img src="${pageContext.request.contextPath}/image/car2.jpg" alt="">
-                                              </div>
-                                              <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-                                                <p>2022. 04. 06. </p>
-                                                <p>일반 충전 구역</p>
-                                                <p>2층 A구역</p>
-                                              </h4>
-                                              <h4 class="col-3 clear fix mt-2"style="margin-left: 40px;">
-                                                <p class="mt-4">입차 시간 : <span> 10:29:35 AM</span> </p>
-                                                <p>출차 시간 : <span> 09:56:27 PM</span> </p>
-                                              </h4>
-
-                                        </div>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div><!-- 차2-2-->
+                            <c:forEach var="car" items="${carList }" varStatus = "status">
+                                
+                                <div class="">
+								  <div class="card" id="carcard"style="overflow: hidden; overflow-x:auto;
+								  white-space: nowrap; ">
+								    <div class="card-body">
+								      <h5 class="carname area-title-ko">${car.carNum }</h5>
+								      <div class="carpic">
+								        <div class="d-flex align-items-center">
+								          <div class="post-item clearfix" >
+								            <img src="${pageContext.request.contextPath}/image/evnum.jpg" alt="">
+								          </div>
+								
+								            <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
+								              <p>고속 충전 구역</p>
+								              <p>${car.linSeqName }</p>
+								              <p class="mt-4">입차 시간 : <span>${car.carGetTm }</span> </p>
+                                              <p>출차 시간 : <span>${car.carSetTm } </span> </p>
+								            </h4>
+								          </div>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+                            </c:forEach>
 
                             </div>
                           </div>
