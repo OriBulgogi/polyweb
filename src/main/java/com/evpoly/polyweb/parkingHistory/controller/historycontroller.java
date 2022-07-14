@@ -39,5 +39,4 @@ public class historycontroller {
 		
 		return ret;
 	}
-
 }

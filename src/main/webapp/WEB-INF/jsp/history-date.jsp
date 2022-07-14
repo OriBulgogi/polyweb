@@ -114,7 +114,7 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
                               '<h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">'+
                                 '<p>고속 충전 구역</p>'+
                                 '<p>'+ this.linSeqName +'</p>'+
-                                '<p>위반시간) <span>'+ this.violationTm +'</span></p>'+
+                                '<p>[충전시간] <span>'+ this.violationTm +'</span></p>'+
                               '</h4>'+
                             '</div>'+
                             
