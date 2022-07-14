@@ -1,28 +1,29 @@
 package com.evpoly.polyweb.carnum.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.evpoly.polyweb.carnum.model.Car;
-import com.evpoly.polyweb.carnum.repo.CarRepository;
+import com.evpoly.polyweb.carnum.dao.CarDAO;
+import com.evpoly.polyweb.carnum.vo.CarVO;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
-@Slf4j
+@Log4j2
 @Service
 public class CarService {
 
-	private final CarRepository carRepository;
-	
-	public CarService(CarRepository carRepository) {
-		this.carRepository = carRepository;
-	}
+	@Resource
+	CarDAO carDAO;
 	
 	// 차 목록
-	public List<Car> getCarList() {
-		return this.carRepository.findList();
+	public List<CarVO> getCarList() {
+		List<CarVO> carList = new ArrayList<>();
+		carList = carDAO.selectCarList();
+		return carList;
 	}
 	
 }

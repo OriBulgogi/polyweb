@@ -1,13 +1,9 @@
-package com.evpoly.polyweb.board.model;
+package com.evpoly.polyweb.board.vo;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
-public class Board {
+@Data
+public class BoardVO {
 
 	public int num;
 	public String title;

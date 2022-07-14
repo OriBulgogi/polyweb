@@ -1,7 +1,8 @@
 package com.evpoly.polyweb.mainPage.controller;
 
-import com.evpoly.polyweb.board.model.Board;
+import com.evpoly.polyweb.board.dao.BoardDAO;
 import com.evpoly.polyweb.board.service.BoardService;
+import com.evpoly.polyweb.board.vo.BoardVO;
 import com.evpoly.polyweb.mainPage.dao.MainPageDAO;
 import com.evpoly.polyweb.staffPage.service.StaffPageService;
 import com.evpoly.polyweb.staffPage.vo.PagingVO;
@@ -31,12 +32,11 @@ public class MainController {
     @Autowired
     StaffPageService staffPageService;
     
-    private BoardService boardService;
-	
-	@Autowired
-	public MainController(BoardService boardService) {
-		this.boardService = boardService;
-	}
+    @Autowired
+    BoardDAO boardDAO;
+    
+    @Autowired
+    BoardService boardService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homeone(Locale locale, Model model) {
@@ -62,7 +62,7 @@ public class MainController {
         model.addAttribute("countList",countList);
         model.addAttribute("countViolationList",countViolationList);
 
-        List<Board> boardList = boardService.getBoardListForIndex();
+        List<BoardVO> boardList = boardService.getBoardList();
         model.addAttribute("boardList", boardList);
 
         return "/index";

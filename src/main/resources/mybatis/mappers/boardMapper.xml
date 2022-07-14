@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evpoly.polyweb.board.dao.BoardDAO">
+
+    <select id="selectBoardList" resultType="com.evpoly.polyweb.board.vo.BoardVO">
+        SELECT *
+        FROM ev_bbs
+    </select>
+        
+    <select id="deleteBoard">
+        DELETE FROM ev_bbs
+        WHERE num = #{num}
+    </select>
+    
+    <select id="insertBoard">
+        INSERT INTO ev_bbs (title, content, writer, regdate, cret_id, cret_dt)
+        VALUES (#{title}, #{content}, #{writer}, SYSDATE(), #{cretId}, SYSDATE())
+    </select>
+
+    <select id="selectBoardDetail" resultType="com.evpoly.polyweb.board.vo.BoardVO">
+        SELECT *
+        FROM ev_bbs
+        WHERE num = #{num}
+    </select>
+    
+</mapper>
