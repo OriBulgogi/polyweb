@@ -196,7 +196,7 @@
               <h5 class="card-title" style="margin-left: 30px;">건물 리스트</h5>
               <div class="card-body">
                 <div class="carlist d-flex" sytle="padding;">
-                  <div class="card scroll-card" style="overflow-x:hidden; overflow-y:auto; width:3200px; height:600px;"> 
+                  <div class="card scroll-card" style="overflow-x:hidden; overflow-y:auresultMapto; width:3200px; height:600px;"> 
 
                       <div class="box">
                         <div id="hereUhTae" class="row">

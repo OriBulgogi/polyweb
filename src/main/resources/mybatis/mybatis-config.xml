@@ -7,5 +7,7 @@
         <mapper resource="mainPageMapper.xml"/>
         <mapper resource="staffPageMapper.xml"/>
         <mapper resource="parkingAreaMapper.xml"/>
+        <mapper resource="parkingHistoryMapper.xml"/>
+        
     </mappers>
 </configuration>

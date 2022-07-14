@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper
+	namespace="com.evpoly.polyweb.parkingHistory.dao.parkingHistoryDAO">
+
+	<select id="getParkingHistroy"
+		resultType="com.evpoly.polyweb.parkingHistory.vo.parkingHistoryVO">
+		SELECT a.car_num, a.car_img, a.lin_seq_name, a.car_get_tm,
+		a.car_set_tm,
+		b.pkg_area_name,
+		IFNULL(TIMEDIFF(a.car_set_tm,
+		a.car_get_tm),
+		TIMEDIFF(NOW(), a.car_get_tm)) AS violation_tm
+		FROM
+		ev_car_info a
+		LEFT
+		JOIN ev_pkg_area b
+		ON a.pkg_area_seq = b.pkg_area_seq
+	</select>
+	
+	<resultMap type="java.util.Map" id="imgMap">
+		<result property="base64" column="IMG" jdbcType="BLOB" />
+	</resultMap>
+
+	<select id="selectImg" resultMap="imgMap">
+		SELECT car_img FROM ev_car_info
+		WHERE car_num = "123가1234"
+	</select>
+
+</mapper>
