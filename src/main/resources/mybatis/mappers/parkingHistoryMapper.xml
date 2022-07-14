@@ -20,14 +20,6 @@
 		JOIN ev_pkg_area b
 		ON a.pkg_area_seq = b.pkg_area_seq
 	</select>
-	
-	<resultMap type="java.util.Map" id="imgMap">
-		<result property="base64" column="IMG" jdbcType="BLOB" />
-	</resultMap>
 
-	<select id="selectImg" resultMap="imgMap">
-		SELECT car_img FROM ev_car_info
-		WHERE car_num = "123가1234"
-	</select>
 
 </mapper>
