@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.evpoly.polyweb.staffPage.vo.StaffPageVO;
+import com.evpoly.polyweb.staffPage.vo.PagingVO;
 import com.evpoly.polyweb.staffPage.vo.PkgAreaVO;
 
 @Mapper
@@ -16,5 +17,9 @@ public interface StaffPageDAO {
 	public void save(StaffPageVO staffPageVo);
 
 	public List<PkgAreaVO> getPkgs();
+	
+	public int countBoard();
+
+	public List<StaffPageVO> selectBoard(PagingVO vo);
 
 }

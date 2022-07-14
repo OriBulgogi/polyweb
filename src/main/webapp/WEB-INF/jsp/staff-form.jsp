@@ -155,7 +155,7 @@
                         <div class="card-body">
                             <h5 class="card-title">정보 입력</h5>
                             <!-- Vertical Form -->
-                            <form class="form-box" action="/staff/staffsave.do" method="post">
+                            <form class="form-box" action="/staffsave.do" method="post">
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label" style="font-size:15px;">아이디</label>
                                     <div class="col-sm-10">
