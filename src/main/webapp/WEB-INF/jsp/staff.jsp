@@ -174,6 +174,18 @@ function selChange() {
                                 </div>
                             </div>
                         </div>
+                        <div style="float: left;">
+                            <select class="form-select" id="cntPerPage" name="sel" onchange="selChange()">
+                                    <option value="5"
+                                        <c:if test="${paging.cntPerPage == 5}">selected</c:if>>5</option>
+                                    <option value="10"
+                                        <c:if test="${paging.cntPerPage == 10}">selected</c:if>>10</option>
+                                    <option value="15"
+                                        <c:if test="${paging.cntPerPage == 15}">selected</c:if>>15</option>
+                                    <option value="20"
+                                        <c:if test="${paging.cntPerPage == 20}">selected</c:if>>20</option>
+                                    </select>
+                        </div> <!-- 옵션선택 끝 -->
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
