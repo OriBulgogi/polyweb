@@ -99,6 +99,8 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
                 	
                 	const blobUrl = URL.createObjectURL(blob);
                 	
+                	// 날짜 포맷
+                	var day = this.carGetTm.substr(0,10);
                 	
                     tempHtml += 
                     '<div class="aboutcar col-6 '+this.pkgAreaName+'">' +
@@ -115,6 +117,9 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
                                 '<p>고속 충전 구역</p>'+
                                 '<p>'+ this.linSeqName +'</p>'+
                                 '<p>위반시간) <span>'+ this.violationTm +'</span></p>'+
+                                '<p hidden class="carGetTm">'+ day +'</p>'+
+                                
+                                '<p class="pkgAreaName" value='+this.pkgAreaName+'></p>'+
                               '</h4>'+
                             '</div>'+
                             
@@ -268,7 +273,7 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
 									</div>
 									<div class="col-sm-2">
 										<input type="date" style="height: 58px" class="form-control"
-											id="Date">
+											id="Date" onchange="filter()">
 									</div>
 									<!-- 오늘 날짜 받아오기 -->
 									<script>                      
@@ -282,8 +287,8 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
                                     var timeOff = new Date().getTimezoneOffset()*60000;
                                     var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
                                     document.getElementById("Date").setAttribute("max", today);
-
                                 </script>
+                                    
 
 									<div class="form-check col-sm-2">
 										<input class="form-check-input" type="checkbox" id="nowcar"
@@ -381,14 +386,20 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
         function filter() {
         let search = document.getElementById("search").value.toLowerCase();
         
+        // 날짜 선택 값
+        let dateSearch = document.getElementById("Date").value;
+        
         let aboutcar = document.getElementsByClassName("aboutcar");
 
         for (let i = 0; i < aboutcar.length; i++) {
           carname = aboutcar[i].getElementsByClassName("carname");
-          if (carname[0].innerHTML.toLowerCase().indexOf(search) != -1) {
-            aboutcar[i].style.display = "block"
-          } else {
-            aboutcar[i].style.display = "none"
+          let carGetTm = aboutcar[i].getElementsByClassName("carGetTm");
+          
+          if (carname[0].innerHTML.toLowerCase().indexOf(search) != -1 && dateSearch == carGetTm[0].innerHTML) {
+            aboutcar[i].style.display = "block";
+          }else {
+            aboutcar[i].style.display = "none";
+            
           }
         }
       }
