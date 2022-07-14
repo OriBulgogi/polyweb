@@ -30,11 +30,97 @@
   <!-- Template Main CSS File -->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
-
-
-
-
 </head>
+
+<!-- JAVASCRIPT FUNCTION -->
+<script type="text/javascript"
+    src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+
+
+const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+	  const byteCharacters = atob(b64Data);
+	  const byteArrays = [];
+
+	  for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+	    const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+	    const byteNumbers = new Array(slice.length);
+	    for (let i = 0; i < slice.length; i++) {
+	      byteNumbers[i] = slice.charCodeAt(i);
+	    }
+
+	    const byteArray = new Uint8Array(byteNumbers);
+	    byteArrays.push(byteArray);
+	  }
+
+	  const blob = new Blob(byteArrays, {type: contentType});
+	  return blob;
+	}
+
+
+ $(document).ready(function(){
+         $.ajax({
+             async : true, // 기본값은 true
+             type : "GET",
+             url : "http://localhost:8080/history-date.do",
+             success : function(data) {
+
+                var tempHtml = "";
+                $(data).each(function(){
+                	console.log("function in");
+
+                	const contentType = 'image/png';
+                	const b64Data = this.carImg
+                	console.log(b64Data)
+
+                	const blob = b64toBlob(b64Data, contentType);
+                	
+                	const blobUrl = URL.createObjectURL(blob);
+                	
+                	console.log(blobUrl)
+                	
+                    tempHtml += 
+                    '<div class="aboutcar col-6">' +
+                    '<div class="card"id="carcard" style="overflow: hidden;'+
+                    'white-space: nowrap;overflow-x:auto;">'+
+                      '<div class="card-body">'+
+                      '<h5 class="carname area-title-ko">'+ this.carNum +'</h5>'+
+                        '<div class="carpic">'+
+                          '<div class="d-flex align-items-center">'+
+                            '<div class="post-item clearfix" >'+
+                              '<img src=' + blobUrl + ' alt="carimg" >'+
+                            '</div>'+
+                              '<h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">'+
+                                '<p>고속 충전 구역</p>'+
+                                '<p>'+ this.linSeqName +'</p>'+
+                                '<p>위반시간) <span>'+ this.violationTm +'</span></p>'+
+                              '</h4>'+
+                            '</div>'+
+                            
+                            '<div class = "clearfix">'+
+                            '<button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='+""+"'history-carnum'"+ '">차량자세히</button>'+
+                            '</div>'+
+                        '</div>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'
+                  
+                        
+                });
+                
+
+                 $("#hereUhTae").append(tempHtml);
+                 
+             },
+             error : function(XMLHttpRequest, textStatus, errorThrown) {
+                 alert("통신 실패.");
+             }
+         });
+     });
+
+</script>
 
 <body>
     <!-- ======= Header ======= -->
@@ -200,190 +286,17 @@
                         <div class="card scroll-card" style="overflow-x:hidden; overflow-y:auto; width:100%; height:500px;">
                          
                           <div class="box" id="build1">
-                            <div class="row">
-                           
-
-                            <div class="aboutcar col-6">
-                              <div class="card" id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">00수 7777</h5>
-                                  <div class="carpic">
-                                    <div class="d-flex align-items-center">
-                                      <div class="post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/evnum.jpg" alt="">
-                                      </div>
-                                        <h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">
-                                          <p>고속 충전 구역</p>
-                                          <p>1층 A구역</p>
-                                          <p><span>00</span>:<span>16</span>:<span>51</span></p>
-                                        </h4>
-                                      </div>
-
-                                        <div class = "clearfix">
-                                          <button class="btn btn-outline-primary" style="float:right; margin-right: 20px;" type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                        </div>
-
-                                      
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <!-- 차 2 -->
-                            <div class="aboutcar col-6">
-                              <div class="card"id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">345다 3456</h5>
-                                  <div class="carpic">
-                                    <div class="d-flex align-items-center">
-                                      <div class="post-item clearfix" >
-                                        <img src="${pageContext.request.contextPath}/image/car1.jpg" alt="">
-                                      </div>
-                                        <h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">
-                                          <p>고속 충전 구역</p>
-                                          <p>1층 C구역</p>
-                                          <p><span>00</span>:<span>16</span>:<span>51</span></p>
-                                        </h4>
-                                      </div>
-                                      
-                                      <div class = "clearfix">
-                                        <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차2-->
-
-
-                          <!-- 차 3 -->
-                          <div class="aboutcar col-6" id="notnow">
-                            <div class="card " id="carcard" style="overflow: hidden;
-                            white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">456라 4567</h5>
-                                      <div class="carpic">
-                                        <div class="d-flex align-items-center">
-                                            <div class="post-item clearfix" >
-                                            <img src="${pageContext.request.contextPath}/image/car2.jpg" alt="">
-                                            </div>
-                                            <h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">
-                                            <p>일반 충전 구역</p>
-                                            <p>1층 D구역</p>
-                                            <p><span>00</span>:<span>46</span>:<span>18</span></p>
-                                            </h4>
-                                        </div>
-                                        <div class = "clearfix">
-                                          <button class="btn btn-outline-primary" style="float:right; " type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                        </div>
-                                  </div>
-                                </div>
-                            </div>
-                          </div><!-- 차3-->
-
-                            <!-- 차 4-->
-                            <div class="aboutcar col-6">
-                              <div class="card "id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">45가 6000</h5>
-                                  <div class="carpic">
-                                      <div class="d-flex align-items-center">
-                                            <div class="post-item clearfix" >
-                                            <img src="${pageContext.request.contextPath}/image/car1.jpg" alt="">
-                                            </div>
-                                            <h4 class="col-6 clear fix mt-2" style="margin-left: 40px;" >
-                                            <p>고속 충전 구역</p>
-                                            <p>2층 B구역</p>
-                                            <p><span>00</span>:<span>08</span>:<span>22</span></p>
-                                            </h4>
-                                      </div>
-                                      <div class = "clearfix">
-                                        <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차4-->
-
-
-
-                                                      <!-- 차 3 지금x -->
-                          <div class="aboutcar col-6">
-                            <div class="card " id="carcard" style="overflow: hidden;
-                            white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">12가 5698</h5>
-                                      <div class="carpic">
-                                        <div class="d-flex align-items-center">
-                                            <div class="post-item clearfix" >
-                                            <img src="${pageContext.request.contextPath}/image/car2.jpg" alt="">
-                                            </div>
-                                            <h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">
-                                            <p>일반 충전 구역</p>
-                                            <p>1층 D구역</p>
-                                            <p><span>00</span>:<span>12</span>:<span>35</span></p>
-                                            </h4>
-                                        </div>
-                                        <div class = "clearfix">
-                                          <button class="btn btn-outline-primary" style="float:right; " type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                        </div>
-                                  </div>
-                                </div>
-                            </div>
-                          </div><!-- 차3-->
-
-                            <!-- 차 4 지금 x-->
-                            <div class="aboutcar col-6">
-                              <div class="card "id="carcard" style="overflow: hidden;
-                              white-space: nowrap;overflow-x:auto;">
-                                <div class="card-body">
-                                  <h5 class="carname area-title-ko">05모 4753</h5>
-                                  <div class="carpic">
-                                      <div class="d-flex align-items-center">
-                                            <div class="post-item clearfix" >
-                                            <img src="${pageContext.request.contextPath}/image/car1.jpg" alt="">
-                                            </div>
-                                            <h4 class="col-6 clear fix mt-2" style="margin-left: 40px;" >
-                                            <p>고속 충전 구역</p>
-                                            <p>2층 B구역</p>
-                                            <p><span>00</span>:<span>28</span>:<span>46</span></p>
-                                            </h4>
-                                      </div>
-                                      <div class = "clearfix">
-                                        <button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='history-carnum'">차량자세히</button>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- 차4-->
-
-
-
-
-
+                            <div id="hereUhTae" class="row">
+    
+                            
                             </div>
                           </div>
-
-
-   
-
                     </form>
-
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
-
-
-
-
-
-
 
   
     </main><!-- End #main -->
@@ -407,8 +320,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       
 
-
-
       <script>
 
       </script>
@@ -419,9 +330,7 @@
               var buildnum = $(this).val(); 
                 $("div.box").hide();
                 $("#build"+buildnum).show();
-
-
-
+                
             });
         });
       </script>
@@ -450,11 +359,6 @@
           $("#box").load(location.href+" #box>*","");
         }, 5000);
       </script> -->
-
-
-
-      
-
         
 
       <!-- Template Main JS File -->
