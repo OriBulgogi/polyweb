@@ -32,7 +32,7 @@
             #{mbrEmail},
             'master',
             NOW(),
-            NOW()
+            #{mbrRegTm}
         )
     </select>
     
