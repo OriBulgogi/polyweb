@@ -40,5 +40,22 @@
         SELECT pkg_area_seq, pkg_area_name
         FROM ev_pkg_area
     </select>
+    
+    <select id="countBoard" resultType="int">
+        SELECT COUNT(*) FROM ev_mbr
+    </select>
+    
+    <select id="selectBoard" resultType="com.evpoly.polyweb.staffPage.vo.StaffPageVO">
+        SELECT * 
+            FROM (
+                SELECT @ROWNUM:=@ROWNUM +1 AS RNUM, A.* 
+                FROM (
+                        SELECT B.mbr_seq, B.mbr_nm, B.mbr_reg_tm, B.mbr_position, B.mbr_state
+                        FROM ev_mbr B
+                        ORDER BY B.mbr_seq <!-- DESC -->
+                   ) A, (SELECT @ROWNUM:=0)R
+        ) R
+        WHERE RNUM BETWEEN #{start} AND #{end};
+    </select>
 
 </mapper>
