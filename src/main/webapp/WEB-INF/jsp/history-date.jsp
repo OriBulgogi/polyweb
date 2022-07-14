@@ -99,8 +99,6 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
                 	
                 	const blobUrl = URL.createObjectURL(blob);
                 	
-                	// 날짜 포맷
-                	var day = this.carGetTm.substr(0,10);
                 	
                     tempHtml += 
                     '<div class="aboutcar col-6 '+this.pkgAreaName+'">' +

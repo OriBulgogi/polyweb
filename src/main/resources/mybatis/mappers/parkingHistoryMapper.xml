@@ -15,6 +15,15 @@
 	      ON a.pkg_area_seq = b.pkg_area_seq
 	      LEFT JOIN ev_pkg_lin c
 	      ON a.lin_seq = c.lin_seq
+		SELECT a.car_num, a.car_img, c.lin_seq_name, a.car_get_tm, a.car_set_tm,
+		b.pkg_area_name,IFNULL(TIMEDIFF(a.car_set_tm, a.car_get_tm),
+		TIMEDIFF(NOW(), a.car_get_tm)) AS violation_tm
+<<<<<<< HEAD
+		FROM ev_car_info a LEFT JOIN ev_pkg_area b 
+		ON a.pkg_area_seq = b.pkg_area_seq 
+=======
+		FROM ev_car_info a LEFT JOIN ev_pkg_area b
+		ON a.pkg_area_seq = b.pkg_area_seq
 	</select>
 
 
