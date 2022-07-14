@@ -63,6 +63,7 @@ $(document).ready(function(){
            success : function(data) {
 
               var tempHtml = "";
+              
               $(data).each(function(){
                   console.log("function in");
 
@@ -76,6 +77,15 @@ $(document).ready(function(){
                   
                   console.log(blobUrl)
                   
+                  var evSt = "";
+                  const evChk = this.carEv;
+                  
+                  if(evChk=='N') {
+                	  evSt = '<p style="color:red;"> 전기차가 아닙니다. </p>';
+                  } else {
+                	  evSt = '<p> 정상 충전 중입니다. </p>';
+                  }
+                  
                   tempHtml += 
                   '<div class="aboutcar col-6">' +
                   '<div class="card"id="carcard" style="overflow: hidden;'+
@@ -88,7 +98,7 @@ $(document).ready(function(){
                             '<img src=' + blobUrl + ' alt="carimg" >'+
                           '</div>'+
                             '<h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">'+
-                              '<p>고속 충전 구역</p>'+
+                              evSt +
                               '<p>'+ this.linSeqName +'</p>'+
                               
                             '</h4>'+
@@ -108,6 +118,9 @@ $(document).ready(function(){
               
 
                $("#hereUhTae").append(tempHtml);
+               
+               
+               
                
            },
            error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -220,12 +233,12 @@ $(document).ready(function(){
     <main id="main" class="main">
 
         <div class="pagetitle">
-          <h1>차랑별 관리</h1>
+          <h1>차랑번호별 관리</h1>
           <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index">Home</a></li>
               <li class="breadcrumb-item">주차 내역</li>
-              <li class="breadcrumb-item active">차랑별 관리</li>
+              <li class="breadcrumb-item active">차랑번호별 관리</li>
             </ol>
           </nav>
         </div><!-- End Page Title -->
