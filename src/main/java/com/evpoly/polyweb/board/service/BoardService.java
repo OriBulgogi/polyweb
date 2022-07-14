@@ -1,46 +1,44 @@
 package com.evpoly.polyweb.board.service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.evpoly.polyweb.board.model.Board;
-import com.evpoly.polyweb.board.repo.BoardRepository;
+import com.evpoly.polyweb.board.dao.BoardDAO;
+import com.evpoly.polyweb.board.vo.BoardVO;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
-@Slf4j
+@Log4j2
 @Service
 public class BoardService {
 
-	private final BoardRepository boardRepository;
-	
-	public BoardService(BoardRepository boardRepository) {
-		this.boardRepository = boardRepository;
-	}
+	@Resource
+	BoardDAO boardDAO;
 	
 	// 게시글 목록
-	public List<Board> getBoardList() {
-		return this.boardRepository.findList();
+	public List<BoardVO> getBoardList() {
+		List<BoardVO> boardList = new ArrayList<>();
+		boardList = boardDAO.selectBoardList();
+		return boardList;
 	}
 	
 	// 게시글 추가
-	public Board insert(Board board) {
-		return this.boardRepository.insert(board);
+	public BoardVO insert(BoardVO board) {
+		return boardDAO.insertBoard(board);
 	}
 	
 	// 게시글 삭제
 	public Integer delete(int num) {
-		log.debug("delete board num = {}", num);
-		return this.boardRepository.delete(num);
+		return boardDAO.deleteBoard(num);
 	}
 
-	public Board boardRead(int num) throws Exception{
-		return this.boardRepository.detail(num);
+	// 게시글 상세보기
+	public BoardVO boardRead(int num) throws Exception{
+		return boardDAO.selectBoardDetail(num);
 	}
 
-	// index page 공지 목록
-	public List<Board> getBoardListForIndex() {
-		return this.boardRepository.findListForIndex();
-	}
 }

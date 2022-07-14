@@ -1,13 +1,9 @@
-package com.evpoly.polyweb.carnum.model;
+package com.evpoly.polyweb.carnum.vo;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
-public class Car {
+@Data
+public class CarVO {
 
 	public int carInfoSeq;
 	public int pkgAreaSeq;
