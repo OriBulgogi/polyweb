@@ -228,3 +228,103 @@ java.sql.SQLException: Unknown label 'car_info_seq'. Possible value [ev_car_info
 [INFO ] 10:44:07.188 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 [INFO ] 10:44:07.189 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 10:44:07.189 o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[INFO ] 10:56:46.304 c.evpoly.polyweb.PolywebApplication - Starting PolywebApplication using Java 11 on DESKTOP-UIL72T1 with PID 6656 (C:\Users\HUSTAR09\git\polyweb\bin\main started by HUSTAR09 in C:\Users\HUSTAR09\git\polyweb)
+[INFO ] 10:56:46.305 c.evpoly.polyweb.PolywebApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 10:56:46.440 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 10:56:46.440 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 10:56:46.853 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 10:56:46.870 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 10:56:47.302 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 10:56:47.309 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:56:47.310 o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 10:56:47.310 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+[INFO ] 10:56:47.450 org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] 10:56:47.457 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 10:56:47.457 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1017 ms
+[INFO ] 10:56:47.738 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 10:56:48.697 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 10:56:49.312 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 10:56:49.518 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 10:56:49.618 o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[WARN ] 10:56:49.770 o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+[INFO ] 10:56:49.781 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[WARN ] 10:56:49.785 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 10:56:49.787 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 10:56:49.790 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 10:56:49.898 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 10:56:49.900 o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:56:49.900 o.a.catalina.core.StandardService - Stopping service [Tomcat]
+[INFO ] 10:56:49.903 o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:56:49.903 o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+[ERROR] 10:56:49.937 o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 10:56:51.828 o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 10:56:51.980 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 10:56:51.980 com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+[INFO ] 10:56:52.019 com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+[INFO ] 10:56:56.489 c.evpoly.polyweb.PolywebApplication - Starting PolywebApplication using Java 11 on DESKTOP-UIL72T1 with PID 3476 (C:\Users\HUSTAR09\git\polyweb\bin\main started by HUSTAR09 in C:\Users\HUSTAR09\git\polyweb)
+[INFO ] 10:56:56.489 c.evpoly.polyweb.PolywebApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 10:56:56.625 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 10:56:56.625 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 10:56:57.039 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 10:56:57.055 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 10:56:57.477 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 10:56:57.484 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:56:57.484 o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 10:56:57.484 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+[INFO ] 10:56:57.631 org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] 10:56:57.637 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 10:56:57.637 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1012 ms
+[INFO ] 10:56:57.921 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 10:56:58.746 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 10:56:59.321 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 10:56:59.530 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 10:56:59.632 o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 10:56:59.796 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 10:56:59.807 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:56:59.824 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 10:56:59.839 c.evpoly.polyweb.PolywebApplication - Started PolywebApplication in 3.645 seconds (JVM running for 4.297)
+[INFO ] 10:57:08.009 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 10:57:08.009 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 10:57:08.010 o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[INFO ] 10:58:00.571 o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 10:58:00.722 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 10:58:00.724 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 10:58:00.763 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 10:58:05.878 c.evpoly.polyweb.PolywebApplication - Starting PolywebApplication using Java 11 on DESKTOP-UIL72T1 with PID 4328 (C:\Users\HUSTAR09\git\polyweb\bin\main started by HUSTAR09 in C:\Users\HUSTAR09\git\polyweb)
+[INFO ] 10:58:05.879 c.evpoly.polyweb.PolywebApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 10:58:06.021 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 10:58:06.021 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 10:58:06.459 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 10:58:06.476 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 10:58:06.891 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 10:58:06.898 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:58:06.899 o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 10:58:06.899 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+[INFO ] 10:58:07.067 org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] 10:58:07.074 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 10:58:07.074 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1053 ms
+[INFO ] 10:58:07.372 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 10:58:08.333 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 10:58:08.964 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 10:58:09.176 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 10:58:09.276 o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 10:58:09.434 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 10:58:09.445 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 10:58:09.466 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 10:58:09.485 c.evpoly.polyweb.PolywebApplication - Started PolywebApplication in 3.92 seconds (JVM running for 4.575)
+[INFO ] 10:58:09.510 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 10:58:09.511 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 10:58:09.511 o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
