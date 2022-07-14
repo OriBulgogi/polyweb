@@ -19,7 +19,7 @@ public class Car {
 	public String carDetect;
 	public String carGetTm;
 	public String carSetTm;
-	public byte[] carImg;
+	public String carImg;
 	public String carTmOut;
 	
 }

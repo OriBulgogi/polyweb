@@ -22,7 +22,7 @@ public class CarRowmapper implements RowMapper<Car> {
 		car.setCarDetect(rs.getString("car_detect"));
 		car.setCarGetTm(rs.getString("car_get_tm"));
 		car.setCarSetTm(rs.getString("car_set_tm"));
-		car.setCarImg(rs.getBytes("car_img"));
+		car.setCarImg(rs.getString("car_img"));
 		car.setCarTmOut(rs.getString("car_tm_out"));
 		return car;
 	}
