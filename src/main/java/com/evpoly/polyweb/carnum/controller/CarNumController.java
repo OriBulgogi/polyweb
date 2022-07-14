@@ -41,6 +41,7 @@ public class CarNumController {
 		return carList;
 	}
 	
+	// blob image
 	private static byte[] blobToBytes(Blob blob) {
 		BufferedInputStream is = null;
 		byte[] bytes = null;
