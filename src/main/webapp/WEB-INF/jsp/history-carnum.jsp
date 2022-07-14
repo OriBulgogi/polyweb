@@ -210,8 +210,6 @@ $(document).ready(function(){
         </ul>
       </li><!-- End 주차내역 Nav -->
 
-
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="notice">
           <i class="bi bi-question-circle"></i>
@@ -242,8 +240,6 @@ $(document).ready(function(){
             </ol>
           </nav>
         </div><!-- End Page Title -->
-
-
 
         <section class="section area">
           <div class="row">
