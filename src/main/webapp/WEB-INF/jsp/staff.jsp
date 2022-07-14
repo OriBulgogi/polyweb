@@ -39,11 +39,17 @@
     
 
 
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-      </script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+function selChange() {
+    var sel = document.getElementById('cntPerPage').value;
+    location.href="staff?nowPage=${paging.nowPage}&cntPerPage="+sel;
+}
+
+</script>
 </head>
 
 
@@ -172,7 +178,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>이름</th>						
+                                    <th style="width:25%">이름</th>						
                                     <th>입사일</th>
                                     <th>직책</th>
                                     <th>상태</th>
@@ -182,8 +188,9 @@
                             <tbody>
                                 <c:forEach var="staffs" items="${staffs}" varStatus="status">
                                 <tr>
-                                    <td>${status.count}</td>
-                                    <td><a href="#">${staffs.mbrNm}</a></td>
+                                    <!--  #번호 -->
+                                    <td><c:out value="${status.count + (paging.nowPage-1)*paging.cntPerPage }" /></td>
+                                    <td style="width:25%"><a href="#">${staffs.mbrNm}</a></td>
                                     <td>${staffs.mbrRegTm}</td>                        
                                     <td>
                                         <c:choose>
@@ -201,70 +208,72 @@
                                     </td>
                                     <td>
 <!--                                         <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a> -->
-                                        <a href="/staff/staffDel.do?seq=${staffs.mbrSeq}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                                        <a href="/staffDel.do?seq=${staffs.mbrSeq}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                     </td>
                                 </tr>
                                 <c:if test="${status.step eq 1}">
                                 
                                 </c:if>
                                 </c:forEach>
-
-                                
-                                <!-- <tr>
-                                    <td>2</td>
-                                    <td><a href="#">이강</a></td>
-                                    <td>2022/05/04</td>                       
-                                    <td>직원</td>
-                                    <td><span class="status text-danger">&bull;</span> 퇴근 </td>
-                                    <td>
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><a href="#">이박</a></td>
-                                    <td>2022/06/01</td>
-                                    <td>직원</td>
-                                    <td><span class="status text-success">&bull;</span> 근무 중 </td>                        
-                                    <td>
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                    </td>                        
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td><a href="#">박강</a></td>
-                                    <td>2022/05/06</td>
-                                    <td>직원</td>
-                                    <td><span class="status text-success">&bull;</span> 근무중 </td>
-                                    <td>
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><a href="#"> </a></td>
-                                    <td></td>                        
-                                    <td></td>
-                                    <td><span class="status text-warning"></span></td>
-                                    <td>
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"></i></a>
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"></a>
-                                    </td>
-                                </tr> -->
                             </tbody>
                         </table>
+                        <!--  페이징 -->
                         <div class="clearfix">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item disabled"><a href="#">Previous</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                                <%-- <!-- 처음 이동 버튼 -->
+                                <c:if test="${paging.startPage != 1}">
+                                    <li class="page-item ">
+                                        <a href="/staff?nowPage=${paging.startPage=1 }&cntPerPage=${paging.cntPerPage}" class="page-link">&laquo;</a>
+                                    </li>
+                                </c:if>
+                                <c:if test="${paging.startPage == 1}">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">&laquo;</a>
+                                    </li>
+                                </c:if> --%>
+                                <!-- 이전 버튼 -->
+                                <c:if test="${paging.nowPage != 1 }">
+                                    <li class="page-item ">
+                                        <a href="/staff?nowPage=${paging.nowPage - 1 }&cntPerPage=${paging.cntPerPage}" class="page-link">Previous</a>
+                                    </li>
+                                </c:if>
+                                <c:if test="${paging.nowPage == 1}">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">Previous</a>
+                                    </li>
+                                </c:if>
+                                <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+                                    <c:choose>
+                                        <c:when test="${p == paging.nowPage }">
+                                            <li class="page-item active"><a class="page-link">${p }</a></li>
+                                        </c:when>
+                                         <c:when test="${p != paging.nowPage }">
+                                             <li class="page-item"><a href="/staff?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="page-link">${p }</a></li>
+                                         </c:when>
+                                   </c:choose>
+                              </c:forEach>
+                                <!-- 다음 버튼 -->
+                                <c:if test="${paging.nowPage != paging.lastPage}">
+                                    <li class="page-item">
+                                        <a href="/staff?nowPage=${paging.nowPage+1 }&cntPerPage=${paging.cntPerPage}" class="page-link">Next</a>
+                                    </li>
+                               </c:if>
+                               <c:if test="${paging.nowPage == paging.lastPage}">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">Next</a>
+                                    </li>
+                                </c:if>
+                                <%-- <!-- 마지막 이동 버튼 -->
+                                <c:if test="${paging.endPage != paging.lastPage}">
+                                    <li class="page-item">
+                                        <a href="/staff?nowPage=${paging.endPage+5}&cntPerPage=${paging.cntPerPage}" class="page-link">&raquo;</a>
+                                    </li>
+                               </c:if>
+                               <c:if test="${paging.endPage == paging.lastPage}">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">&raquo;</a>
+                                    </li>
+                                </c:if> --%>
                             </ul>
                         </div>
                     </div>

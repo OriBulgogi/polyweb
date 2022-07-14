@@ -4,6 +4,7 @@ import com.evpoly.polyweb.board.model.Board;
 import com.evpoly.polyweb.board.service.BoardService;
 import com.evpoly.polyweb.mainPage.dao.MainPageDAO;
 import com.evpoly.polyweb.staffPage.service.StaffPageService;
+import com.evpoly.polyweb.staffPage.vo.PagingVO;
 
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
@@ -12,9 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,12 +88,27 @@ public class MainController {
         return "notice-form";
     }
 
-    //직원 정보
+  //직원 정보
     @RequestMapping(value = "staff", method = RequestMethod.GET)
-    public String staff(Model model){
-    	model.addAttribute("staffs", staffPageService.getStaffs());
-    	//System.out.println("staffs: "+staffPageService.getStaffs());
-        return "staff";
+    public String staff(PagingVO vo, Model model
+    		, @RequestParam(value="nowPage", required=false)String nowPage
+    		, @RequestParam(value="cntPerPage", required=false)String cntPerPage){
+    	
+    	int total = staffPageService.countBoard();
+    	if (nowPage == null && cntPerPage == null) {
+    		nowPage = "1";
+    		cntPerPage = "5";
+    	} else if (nowPage == null ) {
+    		nowPage = "1";
+    	} else if (cntPerPage == null) { 
+    		cntPerPage = "5";
+    	} else if ( Integer.parseInt(cntPerPage) > 5) {
+    		nowPage = "1";
+    	}
+    	vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+    	model.addAttribute("paging", vo);
+    	model.addAttribute("staffs", staffPageService.selectBoard(vo));
+    	return "staff";
     }
 
     //직원 등록
