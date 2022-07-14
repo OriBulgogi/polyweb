@@ -69,7 +69,7 @@
                               '</div>'+
 
                               '<div class = " clearfix">'+
-                              '<button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='+""+ "'history-date'"+ '">구역자세히</button>'+
+                              '<button class="btn btn-outline-primary" style="float:right;" type="button" onClick="location.href='+""+ "'history-date'"+'">구역자세히</button>'+
                               '</div>'+
                             '</div>'+
                           '</div>'+

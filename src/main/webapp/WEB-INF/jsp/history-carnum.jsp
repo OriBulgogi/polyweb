@@ -30,14 +30,101 @@
 
   <!-- Template Main CSS File -->
   <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+<!-- JAVASCRIPT FUNCTION -->
+<script type="text/javascript"
+    src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, {type: contentType});
+    return blob;
+  }
 
 
+$(document).ready(function(){
+       $.ajax({
+           async : true, // 기본값은 true
+           type : "GET",
+           url : "http://localhost:8080/history-carnum.do",
+           success : function(data) {
+
+              var tempHtml = "";
+              $(data).each(function(){
+                  console.log("function in");
+
+                  const contentType = 'image/png';
+                  const b64Data = this.carImg
+                  console.log(b64Data)
+
+                  const blob = b64toBlob(b64Data, contentType);
+                  
+                  const blobUrl = URL.createObjectURL(blob);
+                  
+                  console.log(blobUrl)
+                  
+                  tempHtml += 
+                  '<div class="aboutcar col-6">' +
+                  '<div class="card"id="carcard" style="overflow: hidden;'+
+                  'white-space: nowrap;overflow-x:auto;">'+
+                    '<div class="card-body">'+
+                    '<h5 class="carname area-title-ko">'+ this.carNum +'</h5>'+
+                      '<div class="carpic">'+
+                        '<div class="d-flex align-items-center">'+
+                          '<div class="post-item clearfix" >'+
+                            '<img src=' + blobUrl + ' alt="carimg" >'+
+                          '</div>'+
+                            '<h4 class="col-6 clear fix mt-2"style="margin-left: 40px;">'+
+                              '<p>고속 충전 구역</p>'+
+                              '<p>'+ this.linSeqName +'</p>'+
+                              
+                            '</h4>'+
+                          '</div>'+
+                          '<p class="mt-4">입차 시간 : <span>'+ this.carGetTm +'</span> </p>' +
+                          '<p>출차 시간 : <span>'+this.carSetTm +' </span> </p>' +
+                          '<div class = "clearfix">'+
+                          
+                          '</div>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'
+                
+                      
+              });
+              
+
+               $("#hereUhTae").append(tempHtml);
+               
+           },
+           error : function(XMLHttpRequest, textStatus, errorThrown) {
+               alert("통신 실패.");
+           }
+       });
+   });
+</script>
+
+<!-- 
   <style>
     .aboutcar{
       display: none;
     }
   </style>
-
+ -->
+ 
 </head>
 
 
@@ -192,32 +279,8 @@
                         
 
                           <div class="box" id="build1">
-                            <div class="row">
-                            <c:forEach var="car" items="${carList }" varStatus = "status">
-                                
-                                <div class="">
-								  <div class="card" id="carcard"style="overflow: hidden; overflow-x:auto;
-								  white-space: nowrap; ">
-								    <div class="card-body">
-								      <h5 class="carname area-title-ko">${car.carNum }</h5>
-								      <div class="carpic">
-								        <div class="d-flex align-items-center">
-								          <div class="post-item clearfix" >
-								            <img src="${pageContext.request.contextPath}/image/evnum.jpg" alt="">
-								          </div>
-								
-								            <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
-								              <p>고속 충전 구역</p>
-								              <p>${car.linSeqName }</p>
-								              <p class="mt-4">입차 시간 : <span>${car.carGetTm }</span> </p>
-                                              <p>출차 시간 : <span>${car.carSetTm } </span> </p>
-								            </h4>
-								          </div>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-                            </c:forEach>
+                            <div id="hereUhTae" class="row">
+                            
 
                             </div>
                           </div>

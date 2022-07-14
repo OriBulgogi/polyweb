@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.evpoly.polyweb.staffPage.dao.StaffPageDAO;
 import com.evpoly.polyweb.staffPage.vo.StaffPageVO;
+import com.evpoly.polyweb.staffPage.vo.PagingVO;
 import com.evpoly.polyweb.staffPage.vo.PkgAreaVO;
 
 import lombok.extern.log4j.Log4j2;
@@ -50,8 +51,15 @@ public class StaffPageServiceImpl implements StaffPageService{
 		pkgs = staffPageDAO.getPkgs();
 		return pkgs;
 	}
-
-
 	
-	
+	@Override
+	public int countBoard() {
+		return staffPageDAO.countBoard();
+	}
+
+	@Override
+	public List<StaffPageVO> selectBoard(PagingVO vo) {
+		return staffPageDAO.selectBoard(vo);
+	}
+
 }
