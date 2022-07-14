@@ -203,7 +203,7 @@
 								      <div class="carpic">
 								        <div class="d-flex align-items-center">
 								          <div class="post-item clearfix" >
-								            <img src="${pageContext.request.contextPath}/image/evnum.jpg" alt="">
+								            <img src="${car.carImg }" alt="">
 								          </div>
 								
 								            <h4 class="col-3 clear fix mt-2" style="margin-left: 40px;">
