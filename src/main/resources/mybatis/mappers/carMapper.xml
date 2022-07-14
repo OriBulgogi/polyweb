@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evpoly.polyweb.carnum.dao.CarDAO">
+
+    <select id="selectCarList" resultType="com.evpoly.polyweb.carnum.vo.CarVO">
+        SELECT a.car_info_seq,  
+                a.pkg_area_seq,  
+                a.lin_seq,
+                b.lin_seq_name,
+                a.mbr_seq,  
+                a.car_num,  
+                a.car_ev,  
+                a.car_detect,  
+                a.car_get_tm,  
+                a.car_set_tm, 
+                a.car_img, 
+                a.car_tm_out 
+        FROM ev_car_info a
+        LEFT JOIN ev_pkg_lin b
+        ON a.lin_seq = b.lin_seq
+        WHERE car_num != '' AND car_img != ''
+    </select>
+    
+</mapper>

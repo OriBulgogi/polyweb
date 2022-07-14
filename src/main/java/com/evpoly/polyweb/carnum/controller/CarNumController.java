@@ -2,7 +2,6 @@ package com.evpoly.polyweb.carnum.controller;
 
 import java.io.BufferedInputStream;
 import java.sql.Blob;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,8 @@ import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.evpoly.polyweb.carnum.model.Car;
 import com.evpoly.polyweb.carnum.service.CarService;
+import com.evpoly.polyweb.carnum.vo.CarVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,12 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class CarNumController {
 
-	private CarService carService;
-	
 	@Autowired
-	public CarNumController(CarService carService) {
-		this.carService = carService;
-	}
+	private CarService carService;
 	
 	@RequestMapping(value="history-carnum")
 	public String goHistoryCarNum() {
@@ -36,8 +31,8 @@ public class CarNumController {
 	// 차량 번호별 관리
 	@RequestMapping(value = "history-carnum.do")
 	@ResponseBody
-	List<Car> carNumHistory(ModelMap model) {
-		List<Car> carList = carService.getCarList();
+	List<CarVO> carNumHistory(ModelMap model) {
+		List<CarVO> carList = carService.getCarList();
 		return carList;
 	}
 	

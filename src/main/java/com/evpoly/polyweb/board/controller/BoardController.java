@@ -12,33 +12,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.evpoly.polyweb.board.model.Board;
 import com.evpoly.polyweb.board.service.BoardService;
+import com.evpoly.polyweb.board.vo.BoardVO;
 import com.evpoly.polyweb.member.vo.MemberVO;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
-@Slf4j
+@Log4j2
 @Controller
 public class BoardController {
 
+	@Autowired
 	private BoardService boardService;
 	
-	@Autowired
-	public BoardController(BoardService boardService) {
-		this.boardService = boardService;
-	}
-	
+	// 게시글 목록
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
     public String notice(ModelMap model) {
-    	List<Board> boardList = boardService.getBoardList();
+    	List<BoardVO> boardList = boardService.getBoardList();
     	model.addAttribute("boardList", boardList);
         return "notice";
     }
 	
 	// 게시글 추가
 	@PostMapping(value = "/notice-form")
-	public String insert(Board board, HttpSession session) throws Exception {
+	public String insert(BoardVO board, HttpSession session) throws Exception {
 		try {
 			MemberVO member = (MemberVO) session.getAttribute("user");
 			board.setWriter(member.getMbrNm());
@@ -78,8 +75,8 @@ public class BoardController {
 	public String noticeDetail(@RequestParam("num") int num, ModelMap model) throws Exception {
 		
 		try {
-			Board board = boardService.boardRead(num);
-			System.out.println(board);
+			BoardVO board = boardService.boardRead(num);
+			System.out.println("===========================" + num);
 			model.addAttribute("board", board);
 			return "notice-detail";
 		} catch (Exception e) {

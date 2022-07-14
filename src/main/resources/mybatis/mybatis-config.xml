@@ -8,6 +8,7 @@
         <mapper resource="staffPageMapper.xml"/>
         <mapper resource="parkingAreaMapper.xml"/>
         <mapper resource="parkingHistoryMapper.xml"/>
-        
+        <mapper resource="boardMapper.xml"/>
+        <mapper resource="carMapper.xml"/>
     </mappers>
 </configuration>
