@@ -41,7 +41,7 @@
          $.ajax({
              async : true, // 기본값은 true
              type : "GET",
-             url : "http://15.164.142.253:8080/manage-area.do",
+             url : "http://localhost:8080/manage-area.do",
              success : function(data) {
 
 
