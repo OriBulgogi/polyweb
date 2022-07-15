@@ -59,7 +59,7 @@ $(document).ready(function(){
        $.ajax({
            async : true, // 기본값은 true
            type : "GET",
-           url : "http://localhost:8080/history-carnum.do",
+           url : "http://15.164.142.253:8080/history-carnum.do",
            success : function(data) {
 
               var tempHtml = "";
