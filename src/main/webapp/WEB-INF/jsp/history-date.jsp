@@ -83,7 +83,7 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
          $.ajax({
              async : true, // 기본값은 true
              type : "GET",
-             url : "http://localhost:8080/history-date.do",
+             url : "http://15.164.142.253:8080/history-date.do",
              success : function(data) {
 
                 var tempHtml = "";
